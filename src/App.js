@@ -2,32 +2,24 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
 import GlobalStyle from './styles/globalStyles';
+import TestGraph from './Components/testgraph';
+import Landing from './Components/Landing';
 
 const StyledContainer = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: ${props => props.theme.colorTwo};
+  background-color: ${props => props.theme.colorThree};
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 90%;
-    height: 85%;
-    background: ${props => props.theme.colorTwo};
-    div {
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid ${props => props.theme.colorOne};
       h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         letter-spacing: 0.3rem;
+        margin-top: 1rem;
         color: ${props => props.theme.colorFour};
-      }
+        padding: 0.5rem 1.5rem;
+        border-bottom: 1px solid ${props => props.theme.colorOne};
     }
-  }
 `;
 
 function App() {
@@ -35,11 +27,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <StyledContainer>
-        <div className="container">
           <div>
             <h1>forty pounds</h1>
           </div>
-        </div>
+          <Landing />
       </StyledContainer>
     </ThemeProvider>
   );
