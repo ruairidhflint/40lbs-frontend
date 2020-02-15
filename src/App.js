@@ -8,18 +8,34 @@ import Landing from './Components/Landing';
 const StyledContainer = styled.div`
   width: 100%;
   height: 100vh;
-  background-color: ${props => props.theme.colorThree};
+  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
-      h1 {
-        font-size: 2.5rem;
-        letter-spacing: 0.3rem;
-        margin-top: 1rem;
-        color: ${props => props.theme.colorFour};
-        padding: 0.5rem 1.5rem;
-        border-bottom: 1px solid ${props => props.theme.colorOne};
+  .nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    h1 {
+      width: 250px;
+      text-align: center;
+      font-size: 2rem;
+      letter-spacing: 0.3rem;
+      margin-top: 1rem;
+      color: ${props => props.theme.colorFour};
+      padding-bottom: 0.5rem;
+      margin-left: 2rem;
+      border-bottom: 1px solid ${props => props.theme.colorOne};
     }
+
+    h3 {
+      color: ${props => props.theme.colorFour};
+      font-size: 1.2rem;
+      margin-right: 4rem;
+    }
+  }
 `;
 
 function App() {
@@ -27,10 +43,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <StyledContainer>
-          <div>
-            <h1>forty pounds</h1>
-          </div>
-          <Landing />
+        <div className="nav">
+          <h1>forty pounds</h1>
+          <h3>Log in</h3>
+        </div>
+        <Landing />
       </StyledContainer>
     </ThemeProvider>
   );
