@@ -54,3 +54,13 @@ function App() {
 }
 
 export default App;
+
+/* 
+TODO -
+- Settle on color scheme
+- Design Landing Page
+- Design Login/Signup Page (Dribble)
+- Design display page
+-Design Upload Modal
+
+*/
