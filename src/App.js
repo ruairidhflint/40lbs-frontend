@@ -8,7 +8,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <Test />
+        <h1></h1>
       </div>
     </ThemeProvider>
   );
