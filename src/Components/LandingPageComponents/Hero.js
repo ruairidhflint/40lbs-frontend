@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 import HeroImage from '../../Assets/line.png';
 
 function Hero() {
-  // const [test, setTest] = useState(false);
-  // const [test2, setTest2] = useState(false);
-
   const [fadeIn, setFadeIn] = useState({ line: false, text: false });
 
   useEffect(() => {
