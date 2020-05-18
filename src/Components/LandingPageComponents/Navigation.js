@@ -23,8 +23,12 @@ const StyledHeader = styled.header`
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
     padding: 0 4rem;
+
+    @media(max-width: 600px) {
+        padding: 0 2rem;
+    }
 
     h3 {
       font-size: 1.7rem;
