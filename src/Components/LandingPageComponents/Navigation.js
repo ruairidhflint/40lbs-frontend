@@ -17,7 +17,7 @@ function Navigation() {
 
 const StyledHeader = styled.header`
   width: 100%;
-  margin-top: 1rem;
+  margin: 1rem 0;
   nav {
     max-width: 1280px;
     margin: 0 auto;

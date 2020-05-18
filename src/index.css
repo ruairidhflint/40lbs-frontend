@@ -62,3 +62,7 @@ body {
 .AppContainer{
 	width: 100vw;	
 }
+
+.apexcharts-gridlines-horizontal {
+	display: none;
+}

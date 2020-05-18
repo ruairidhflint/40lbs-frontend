@@ -8,11 +8,11 @@ const settings = {
       enabled: false,
     },
     toolbar: {
-      show: true,
+      show: false,
     },
-    foreColor: 'rgba(0,0,0,0.5)',
+    foreColor: 'rgba(0,0,0,0)',
     animations: {
-      enabled: true,
+      enabled: false,
       easing: 'easeinout',
       speed: 1000,
       dynamicAnimation: {
@@ -21,23 +21,24 @@ const settings = {
       },
     },
   },
-  colors: ['#abde79'],
-  annotations: {
-    yaxis: [
-      {
-        y: 160,
-        borderColor: '#00E396',
-        label: {
-          borderColor: '#00E396',
-          style: {
-            color: '#fff',
-            background: '#00E396',
-          },
-          text: 'Goal',
-        },
-      },
-    ],
-  },
+  colors: ['#0390fb'],
+  // annotations: {
+  //   yaxis: [
+  //     {
+  //       y: 160,
+  //       borderColor: '#00E396',
+  //       label: {
+  //         borderColor: '#00E396',
+  //         style: {
+  //           color: '#fff',
+  //           background: '#00E396',
+  //         },
+  //         text: 'Goal',
+  //       },
+  //     },
+  //   ],
+  // },
+ 
   dataLabels: {
     enabled: false,
   },
@@ -45,17 +46,20 @@ const settings = {
     curve: 'straight',
   },
   title: {
-    text: 'Weight',
+    text: '',
     align: 'left',
   },
   grid: {
     row: {
-      show: true,
-      colors: ['#f3f3f3', 'transparent'],
-      opacity: 0.5,
+      show: false,
+      colors: ['#ffffff', 'transparent'],
+      opacity: 0,
     },
   },
   xaxis: {
+    lines: {
+      show: false
+    },
     categories: [
       '22-03-2019',
       '23-03-2019',
@@ -83,6 +87,9 @@ const settings = {
   yaxis: {
     min: 150,
     max: 210,
+    lines: {
+      show: false,
+    }
   },
 };
 
@@ -117,7 +124,7 @@ const data1 = [
 
 function TestGraph() {
   return (
-    <div style={{ width: '60%', marginTop: '3rem' }}>
+    <div style={{ width: '60%', marginTop: '3rem'  }}>
       <ReactApexCharts options={settings} series={data1} type="line" />;
     </div>
   );
