@@ -1,39 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import HeroImage from '../../Assets/line.png';
 
 function Hero() {
+  const [test, setTest] = useState(false);
+  const [test2, setTest2] = useState(false);
+
+  useEffect(() => {
+    setTest(true);
+    setTimeout(() => {
+      setTest2(true);
+    }, 1000);
+  }, []);
+
   return (
-    <StyledContainer>
+    <>
       <StyledHeroBackground />
-      <StyledOverlay>
+      <StyledFade test={test} />
+      <StyledOverlay test={test2}>
         <h1>What gets measured gets managed.</h1>
         <p>
-          Forty Pounds is a lightweight weight tracker to help you make
+          Forty Pounds is a lightweight weight tracker to help make
           adjustments to your fitness and achieve your next health goal.
         </p>
         <div className="buttons">
-          <button>Sign Up</button>
-          <button>Learn More</button>
+          <Link to="/login">
+            <button>Sign Up</button>
+          </Link>
+          <Link to="helloworld">
+            <button>Learn More</button>
+          </Link>
         </div>
       </StyledOverlay>
-    </StyledContainer>
+    </>
   );
 }
 
-const StyledContainer = styled.div`
-  width: 100vw;
-  height: 100%;
-`;
-
 const StyledHeroBackground = styled.section`
   width: 100%;
-  height: 600px;
+  height: 650px;
   margin: 0 auto;
   background-image: url(${HeroImage});
   position: absolute;
   opacity: 0.2;
+`;
+
+const StyledFade = styled.section`
+  width: 100%;
+  height: 650px;
+  margin: 0 auto;
+  background-color: white;
+  position: absolute;
+  transition: transform 2s ease-in-out;
+  transform: ${(props) => (props.test ? 'translate(120vw)' : null)};
 `;
 
 const StyledOverlay = styled.div`
@@ -46,6 +66,8 @@ const StyledOverlay = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: opacity 3s ease-in-out;
+  opacity: ${(props) => (props.test ? '1' : '0')};
 
   ::selection {
     background-color: ${(props) => props.theme.yellow};
@@ -80,7 +102,10 @@ const StyledOverlay = styled.div`
       font-size: 1.2rem;
     }
   }
-
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   button {
     width: 140px;
     height: 40px;
