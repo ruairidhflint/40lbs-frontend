@@ -5,6 +5,6 @@ export const theme = {
     secondaryBlue: '#cfe8fe',
     red: '#ff4560',
     yellow: '#ffb019',
-    green:'#ffb019',
+    green:'#02d8b7',
     white: '#ffffff'
 }

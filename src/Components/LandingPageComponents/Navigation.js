@@ -6,7 +6,9 @@ function Navigation() {
   return (
     <StyledHeader>
       <nav>
-        <h1>fortypounds</h1>
+        <Link to='/'>
+          <h3>forty pounds</h3>
+        </Link>
         <Link to="/login">Login</Link>
       </nav>
     </StyledHeader>
@@ -16,14 +18,31 @@ function Navigation() {
 const StyledHeader = styled.header`
   width: 100%;
   margin-top: 1rem;
-    nav {
-        max-width: 1280px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 3rem;
-        border: 1px solid red;
+  nav {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4rem;
+
+    h3 {
+      font-size: 1.7rem;
+      font-weight: bold;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.3s ease-in-out;
+
+      :hover {
+        opacity: 0.5;
+        transition: opacity 0.3s ease-in-out;
+      }
+    }
+  }
 `;
 
 export default Navigation;
