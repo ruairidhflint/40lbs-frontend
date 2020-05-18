@@ -4,25 +4,27 @@ import { Link } from 'react-router-dom';
 import HeroImage from '../../Assets/line.png';
 
 function Hero() {
-  const [test, setTest] = useState(false);
-  const [test2, setTest2] = useState(false);
+  // const [test, setTest] = useState(false);
+  // const [test2, setTest2] = useState(false);
+
+  const [fadeIn, setFadeIn] = useState({ line: false, text: false });
 
   useEffect(() => {
-    setTest(true);
+    setFadeIn({ line: true, text: false });
     setTimeout(() => {
-      setTest2(true);
+      setFadeIn({ line: true, text: true });
     }, 1000);
   }, []);
 
   return (
     <>
       <StyledHeroBackground />
-      <StyledFade test={test} />
-      <StyledOverlay test={test2}>
+      <StyledFade visible={fadeIn.line} />
+      <StyledOverlay visible={fadeIn.text}>
         <h1>What gets measured gets managed.</h1>
         <p>
-          Forty Pounds is a lightweight weight tracker to help make
-          adjustments to your fitness and achieve your next health goal.
+          Forty Pounds is a lightweight weight tracker to help make adjustments
+          to your fitness and achieve your next health goal.
         </p>
         <div className="buttons">
           <Link to="/login">
@@ -53,7 +55,7 @@ const StyledFade = styled.section`
   background-color: white;
   position: absolute;
   transition: transform 2s ease-in-out;
-  transform: ${(props) => (props.test ? 'translate(120vw)' : null)};
+  transform: ${(props) => (props.visible ? 'translate(120vw)' : null)};
 `;
 
 const StyledOverlay = styled.div`
@@ -67,7 +69,7 @@ const StyledOverlay = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 3s ease-in-out;
-  opacity: ${(props) => (props.test ? '1' : '0')};
+  opacity: ${(props) => (props.visible ? '1' : '0')};
 
   ::selection {
     background-color: ${(props) => props.theme.yellow};
