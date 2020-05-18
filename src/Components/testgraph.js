@@ -8,14 +8,20 @@ const settings = {
       enabled: false,
     },
     toolbar: {
-      show: false,
+      show: true,
     },
     foreColor: 'rgba(0,0,0,0.5)',
     animations: {
-      enabled: false,
+      enabled: true,
+      easing: 'easeinout',
+      speed: 1000,
+      dynamicAnimation: {
+        enabled: true,
+        speed: 350,
+      },
     },
   },
-  colors: ['#E91E63'],
+  colors: ['#abde79'],
   annotations: {
     yaxis: [
       {
@@ -111,7 +117,7 @@ const data1 = [
 
 function TestGraph() {
   return (
-    <div style={{width: '60%', marginTop:'3rem'}}>
+    <div style={{ width: '60%', marginTop: '3rem' }}>
       <ReactApexCharts options={settings} series={data1} type="line" />;
     </div>
   );
