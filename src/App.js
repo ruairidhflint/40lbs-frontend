@@ -2,13 +2,11 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './Styles/theme';
 
-import Test from './Components/testgraph';
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        <h1></h1>
+        <h1>fortypounds</h1>
       </div>
     </ThemeProvider>
   );
