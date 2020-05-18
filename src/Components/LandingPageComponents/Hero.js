@@ -42,7 +42,6 @@ const StyledOverlay = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 1280px;
-  height: 600px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -61,6 +60,10 @@ const StyledOverlay = styled.div`
     ::selection {
       background-color: ${(props) => props.theme.green};
     }
+
+    @media (max-width: 700px) {
+      font-size: 3.9rem;
+    }
   }
 
   p {
@@ -72,6 +75,10 @@ const StyledOverlay = styled.div`
     ::selection {
       background-color: ${(props) => props.theme.green};
     }
+
+    @media (max-width: 700px) {
+      font-size: 1.2rem;
+    }
   }
 
   button {
@@ -82,11 +89,23 @@ const StyledOverlay = styled.div`
     font-size: 1rem;
     border: none;
     border-radius: 5px;
+    transition: opacity 0.2s ease-in-out;
     margin: 2rem 1rem;
+
+    :hover {
+      opacity: 0.8;
+      transition: opacity 0.2s ease-in-out;
+      cursor: pointer;
+    }
 
     :active {
       outline: none;
       border: none;
+    }
+
+    @media (max-width: 690px) {
+      margin: 1rem 0.2rem;
+      width: 110px;
     }
   }
 `;
