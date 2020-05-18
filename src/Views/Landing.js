@@ -1,8 +1,11 @@
 import React from 'react';
 
+// Component Imports
+import Navigation from '../Components/LandingPageComponents/Navigation'
+
 function LandingPage() {
   return (
-    <h1>Landing Page</h1>
+    <Navigation />
     );
 }
 
