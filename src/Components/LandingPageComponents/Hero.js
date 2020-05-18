@@ -68,19 +68,11 @@ const StyledOverlay = styled.div`
   transition: opacity 3s ease-in-out;
   opacity: ${(props) => (props.visible ? '1' : '0')};
 
-  ::selection {
-    background-color: ${(props) => props.theme.yellow};
-  }
-
   h1 {
     width: 100%;
     font-size: 5rem;
     font-weight: bold;
     text-align: center;
-
-    ::selection {
-      background-color: ${(props) => props.theme.green};
-    }
 
     @media (max-width: 700px) {
       font-size: 3.9rem;
@@ -89,13 +81,9 @@ const StyledOverlay = styled.div`
 
   p {
     text-align: center;
-    margin-top: 1.7rem;
+    margin-top: 2.2rem;
     font-size: 1.6rem;
     width: 90%;
-
-    ::selection {
-      background-color: ${(props) => props.theme.green};
-    }
 
     @media (max-width: 700px) {
       font-size: 1.2rem;
