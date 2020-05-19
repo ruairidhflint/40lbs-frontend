@@ -141,6 +141,7 @@ const StyledLoginContainer = styled.main`
         padding-left: 1rem;
         border: 2px solid ${(props) => props.theme.white};
         border-radius: 4px;
+        transition: background-color 0.3s ease-in-out;
 
         :focus {
           outline: none;
@@ -150,6 +151,7 @@ const StyledLoginContainer = styled.main`
 
         :hover {
           background-color: ${(props) => props.theme.background};
+          transition: background-color 0.3s ease-in-out;
         }
       }
 
