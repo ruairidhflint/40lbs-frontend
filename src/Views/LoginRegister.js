@@ -42,13 +42,14 @@ const StyledLoginContainer = styled.main`
 
   .container {
     width: 35%;
-    height: 73%;
+    max-height: 73%;
     box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.07);
     border-radius: 4px;
     background-color: ${(props) => props.theme.white};
     display: flex;
     flex-direction: column;
     color: ${(props) => props.theme.mainText};
+    padding: 1.3rem 2rem 2rem 2rem;
 
     .title {
       width: 100%;
@@ -129,14 +130,14 @@ const StyledLoginContainer = styled.main`
       }
 
       label {
-        width: 80%;
+        width: 90%;
         margin-bottom: 0.4rem;
         font-size: 0.9rem;
         opacity: 0.8;
       }
       input {
         display: block;
-        width: 80%;
+        width: 90%;
         margin-bottom: 0.7rem;
         height: 2.7rem;
         border: none;
