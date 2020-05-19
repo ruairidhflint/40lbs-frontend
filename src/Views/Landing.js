@@ -1,4 +1,4 @@
-import React from './node_modules/react';
+import React from 'react';
 
 // Component Imports
 import Navigation from '../Components/LandingPageComponents/Navigation';
