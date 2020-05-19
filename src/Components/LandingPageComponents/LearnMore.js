@@ -7,9 +7,9 @@ function LearnMore() {
   return (
     <StyledLearnMore>
       <div id="more">
-        <AboutCard />
-        <AboutCard />
-        <AboutCard />
+        <AboutCard bg={'#02d8b7'}></AboutCard>
+        <AboutCard bg={'#0390fb'}></AboutCard>
+        <AboutCard bg={'#ffb019'}></AboutCard>
       </div>
     </StyledLearnMore>
   );
@@ -26,6 +26,16 @@ const StyledLearnMore = styled.section`
   );
   position: absolute;
   bottom: -80%;
+  #more {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    height: 500px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 5rem;
+  }
 `;
 
 export default LearnMore;
