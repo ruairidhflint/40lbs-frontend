@@ -15,7 +15,7 @@ function Two() {
 
 const StyledCard = styled.div`
   width: 29%;
-  height: 400px;
+  height: 450px;
   background-color: ${(props) => props.theme.white};
   box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.07);
   border-radius: 4px;

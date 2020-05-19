@@ -19,7 +19,7 @@ function LearnMore() {
 
 const StyledLearnMore = styled.section`
   width: 100%;
-  height: 640px;
+  height: 690px;
   margin-top: 30px;
   background: linear-gradient(
     180deg,
@@ -27,7 +27,7 @@ const StyledLearnMore = styled.section`
     ${(props) => props.theme.background} 15%
   );
   position: absolute;
-  bottom: -72%;
+  bottom: -82%;
   #more {
     max-width: 1280px;
     margin: 0 auto;
