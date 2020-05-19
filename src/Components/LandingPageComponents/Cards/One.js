@@ -88,7 +88,7 @@ const StyledCard = styled.div`
 
 
       p {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         width: 82%;
         opacity: 0.7;
         line-height: 1.2;

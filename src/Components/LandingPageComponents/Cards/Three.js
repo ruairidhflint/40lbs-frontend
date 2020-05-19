@@ -69,7 +69,7 @@ const StyledCard = styled.div`
     p {
       opacity: 0.75;
       width: 80%;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       line-height: 1.4;
       text-align: center;
       font-style: italic;
