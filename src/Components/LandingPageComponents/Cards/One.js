@@ -78,24 +78,23 @@ const StyledCard = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding: 0 2.5rem 0.5rem 2.5rem;
+    align-items: center;
 
     .feature {
-      width: 100%;
+      width: 80%;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
+
       p {
         font-size: 0.8rem;
-        width: 83%;
+        width: 82%;
         opacity: 0.7;
-
       }
 
       .img-cont {
         width: 2rem;
-
         img {
           max-width: 100%;
           height: auto;
