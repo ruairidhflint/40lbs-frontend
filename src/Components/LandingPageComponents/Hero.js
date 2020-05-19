@@ -33,7 +33,7 @@ function Hero() {
           to your fitness and achieve your next health goal.
         </p>
         <div className="buttons">
-          <Link to="/login">
+          <Link to="/register">
             <button>Sign Up</button>
           </Link>
           <a href="#more">
