@@ -41,7 +41,7 @@ const StyledLoginContainer = styled.main`
 
   .container {
     width: 35%;
-    max-height: 73%;
+    max-height: 93%;
     box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.07);
     border-radius: 4px;
     background-color: ${(props) => props.theme.white};
@@ -49,6 +49,18 @@ const StyledLoginContainer = styled.main`
     flex-direction: column;
     color: ${(props) => props.theme.mainText};
     padding: 1.3rem 2rem 2rem 2rem;
+
+    @media (max-width: 990px) {
+      width: 50%;
+    }
+
+    @media (max-width: 680px) {
+      width: 70%;
+    }
+
+    @media (max-width: 500px) {
+      width: 85%;
+    }
 
     .main {
       width: 100%;
@@ -63,6 +75,13 @@ const StyledLoginContainer = styled.main`
         font-size: 1.8rem;
         font-weight: bold;
         margin: 0.5rem 0 0.5rem 0;
+
+        @media (max-width: 500px) {
+          font-size: 1.3rem;
+        }
+      }
+
+      @media (max-width: 990px) {
       }
 
       span {
