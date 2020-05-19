@@ -109,20 +109,23 @@ const StyledOverlay = styled.div`
     text-decoration: none;
     color: inherit;
   }
+
   button {
-    width: 140px;
-    height: 40px;
+    width: 145px;
+    height: 43px;
     background-color: ${(props) => props.theme.green};
     color: white;
     font-size: 1rem;
     border: none;
     border-radius: 5px;
-    transition: opacity 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     margin: 2rem 1rem;
 
+
     :hover {
+      transition: all 0.2s ease-in-out;
+      transform: scale(0.97);
       opacity: 0.8;
-      transition: opacity 0.2s ease-in-out;
       cursor: pointer;
     }
 

@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import AboutCard from './AboutCard';
+import One from './Cards/One';
+import Two from './Cards/Two';
+import Three from './Cards/Three';
 
 function LearnMore() {
   return (
     <StyledLearnMore>
       <div id="more">
-        <AboutCard bg={'#02d8b7'}></AboutCard>
-        <AboutCard bg={'#0390fb'}></AboutCard>
-        <AboutCard bg={'#ffb019'}></AboutCard>
+        <One />
+        <Two />
+        <Three />
       </div>
     </StyledLearnMore>
   );
