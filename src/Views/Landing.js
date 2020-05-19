@@ -1,8 +1,8 @@
-import React from 'react';
+import React from './node_modules/react';
 
 // Component Imports
-import Navigation from '../components/LandingPageComponents/Navigation';
-import Hero from '../components/LandingPageComponents/Hero';
+import Navigation from '../Components/LandingPageComponents/Navigation';
+import Hero from '../Components/LandingPageComponents/Hero';
 // import Footer from '../components/LandingPageComponents/Footer';
 
 function LandingPage() {

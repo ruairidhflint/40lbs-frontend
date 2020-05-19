@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import HeroImage from '../../assets/line.png';
+import React, { useState, useEffect } from './node_modules/react';
+import styled from './node_modules/styled-components';
+import { Link } from './node_modules/react-router-dom';
+import HeroImage from '../../Assets/line.png';
 
 import LearnMore from './LearnMore';
 

@@ -2,8 +2,8 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 // View Imports
-import LandingPage from './views/Landing';
-import Test from './components/testgraph';
+import LandingPage from './Views/Landing';
+import Test from './Components/testgraph';
 
 function App() {
   return (
