@@ -27,11 +27,10 @@ const StyledLearnMore = styled.section`
     ${(props) => props.theme.background} 15%
   );
   position: relative;
-  top: 750px;
+  top: 650px;
 
-  @media (max-width: 850px) {
-    width: 100%;
-    height: 100%;
+  @media(max-width: 890px){
+    height: 1500px;
   }
   #more {
     max-width: 1280px;
@@ -47,8 +46,15 @@ const StyledLearnMore = styled.section`
     bottom: 0;
     left: 0;
     right: 0;
-  }
 
+    @media(max-width: 890px){
+      height: 100%;
+      width: 100%;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 0 1rem;
+    }
+  }
 `;
 
 export default LearnMore;
