@@ -81,9 +81,6 @@ const StyledLoginContainer = styled.main`
         }
       }
 
-      @media (max-width: 990px) {
-      }
-
       span {
         font-size: 0.7rem;
         margin-bottom: 1rem;
@@ -102,6 +99,11 @@ const StyledLoginContainer = styled.main`
         line-height: 1.2;
         text-align: center;
         margin-top: 0.5rem;
+
+        @media (max-width: 350px) {
+          width: 95%;
+          font-size: 0.7rem;
+        }
 
         a {
           text-decoration: none;
@@ -162,6 +164,12 @@ const StyledLoginContainer = styled.main`
         margin-top: 1.2rem;
         transition: all 0.3s ease-in-out;
         cursor: pointer;
+
+        @media (max-width: 350px) {
+          width: 65%;
+          height: 38px;
+          font-size: 1rem;
+        }
 
         :hover {
           opacity: 0.8;
