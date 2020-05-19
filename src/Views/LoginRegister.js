@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Register from '../Components/AuthComponents/Register';
 import Login from '../Components/AuthComponents/Login';
+import Spinner from '../Components/Spinner';
 
 function LoginRegister(props) {
   const [login, setLogin] = useState(() => {
@@ -13,6 +14,8 @@ function LoginRegister(props) {
     }
   });
 
+  const [spinning, setSpinning] = useState(true);
+
   const switchAuth = () => {
     setLogin(!login);
   };
@@ -21,7 +24,7 @@ function LoginRegister(props) {
       <div className="container">
         <div className="main">
           {!login ? (
-            <Register switch={switchAuth} />
+            <Register switch={switchAuth} spinning={spinning} />
           ) : (
             <Login switch={switchAuth} />
           )}
@@ -41,6 +44,7 @@ const StyledLoginContainer = styled.main`
 
   .container {
     width: 35%;
+    min-height: 40%;
     max-height: 93%;
     box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.07);
     border-radius: 4px;

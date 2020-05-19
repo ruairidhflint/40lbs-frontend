@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Spinner from '../Spinner';
+
 function Register(props) {
+  if (props.spinning) {
+    return <Spinner />;
+  }
   return (
     <>
       <h4>Create your account</h4>
