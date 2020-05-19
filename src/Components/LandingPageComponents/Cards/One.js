@@ -91,10 +91,12 @@ const StyledCard = styled.div`
         font-size: 0.8rem;
         width: 82%;
         opacity: 0.7;
+        line-height: 1.2;
+
       }
 
       .img-cont {
-        width: 2rem;
+        width: 1.8rem;
         img {
           max-width: 100%;
           height: auto;
