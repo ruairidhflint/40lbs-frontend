@@ -3,14 +3,14 @@ import { Route } from 'react-router-dom';
 
 // View Imports
 import LandingPage from './Views/Landing';
-import Test from './Components/testgraph';
+import LoginRegister from './Views/LoginRegister';
 
 function App() {
   return (
-  <div className="AppContainer">
-    <Route exact path="/" component={LandingPage} />
-    <Route exact path="/test" component={Test} />
-  </div>
+    <div className="AppContainer">
+      <Route exact path="/" component={LandingPage} />
+      <Route exact path="/login" component={LoginRegister} />
+    </div>
   );
 }
 
