@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Register from '../Components/AuthComponents/Register';
@@ -7,30 +6,19 @@ import Login from '../Components/AuthComponents/Login';
 
 function LoginRegister(props) {
   const [login, setLogin] = useState(() => {
-   if(props.location.pathname === '/login'){
-     return true;
-   } else {
-     return false;
-   }
+    if (props.location.pathname === '/login') {
+      return true;
+    } else {
+      return false;
+    }
   });
 
   const switchAuth = () => {
     setLogin(!login);
   };
-
-  // useEffect(() => {
-  //   if (props.location.pathname === '/login') {
-  //     setLogin(true);
-  //   }
-  // }, [props.location.pathname]);
   return (
     <StyledLoginContainer>
       <div className="container">
-        {/* <div className="title">
-          <Link to="/">
-            <h3>forty pounds</h3>
-          </Link>
-        </div> */}
         <div className="main">
           {!login ? (
             <Register switch={switchAuth} />
@@ -61,32 +49,6 @@ const StyledLoginContainer = styled.main`
     flex-direction: column;
     color: ${(props) => props.theme.mainText};
     padding: 1.3rem 2rem 2rem 2rem;
-
-    .title {
-      width: 100%;
-      height: 7%;
-      background-color: ${(props) => props.theme.white};
-      border-radius: 8px 8px 0 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      a {
-        text-decoration: none;
-        transition: opacity 0.3s ease-in-out;
-        color: inherit;
-
-        :hover {
-          opacity: 0.8;
-          transition: opacity 0.3s ease-in-out;
-        }
-      }
-
-      h3 {
-        font-size: 1rem;
-        opacity: 0.8;
-      }
-    }
 
     .main {
       width: 100%;
