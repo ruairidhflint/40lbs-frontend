@@ -3,20 +3,29 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import HeroImage from '../../Assets/line.png';
 
+import LearnMore from './LearnMore';
+
 function Hero() {
-  const [fadeIn, setFadeIn] = useState({ line: false, text: false });
+  const [fadeIn, setFadeIn] = useState({
+    line: false,
+    text: false,
+    hide: false,
+  });
 
   useEffect(() => {
-    setFadeIn({ line: true, text: false });
+    setFadeIn({ line: true, text: false, hide: false });
     setTimeout(() => {
-      setFadeIn({ line: true, text: true });
+      setFadeIn({ line: true, text: true, hide: false });
     }, 1000);
+    setTimeout(() => {
+      setFadeIn({ line: true, text: true, hide: true });
+    }, 3000);
   }, []);
 
   return (
     <>
       <StyledHeroBackground />
-      <StyledFade visible={fadeIn.line} />
+      <StyledFade visible={fadeIn.line} hide={fadeIn.hide} />
       <StyledOverlay visible={fadeIn.text}>
         <h1>What gets measured gets managed.</h1>
         <p>
@@ -27,11 +36,12 @@ function Hero() {
           <Link to="/login">
             <button>Sign Up</button>
           </Link>
-          <Link to="helloworld">
+          <a href="#test">
             <button>Learn More</button>
-          </Link>
+          </a>
         </div>
       </StyledOverlay>
+      <LearnMore />
     </>
   );
 }
@@ -53,6 +63,7 @@ const StyledFade = styled.section`
   position: absolute;
   transition: transform 2s ease-in-out;
   transform: ${(props) => (props.visible ? 'translate(120vw)' : null)};
+  display: ${props => props.hide ? 'none' : 'block'};
 `;
 
 const StyledOverlay = styled.div`
@@ -77,11 +88,16 @@ const StyledOverlay = styled.div`
     @media (max-width: 700px) {
       font-size: 3.9rem;
     }
+
+    @media (max-width: 330px) {
+      margin-top: 8rem;
+      font-size: 3rem;
+    }
   }
 
   p {
     text-align: center;
-    margin-top: 2.2rem;
+    margin-top: 2rem;
     font-size: 1.6rem;
     width: 90%;
 
@@ -118,6 +134,12 @@ const StyledOverlay = styled.div`
     @media (max-width: 690px) {
       margin: 1rem 0.2rem;
       width: 110px;
+    }
+
+    @media (max-width: 330px) {
+      width: 85px;
+      height: 35px;
+      font-size: 0.8rem;
     }
   }
 `;
