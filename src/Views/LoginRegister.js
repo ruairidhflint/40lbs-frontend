@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import Register from '../Components/AuthComponents/Register';
+import Login from '../Components/AuthComponents/Login';
+
 function LoginRegister() {
   const [login, setLogin] = useState(false);
 
@@ -18,24 +21,11 @@ function LoginRegister() {
           </Link>
         </div>
         <div className="main">
-          <h4>Create your account</h4>
-          <span onClick={switchAuth}>Already registered?</span>
-          <form>
-            <label>Email</label>
-            <input type="email" required />
-            <label> Password</label>
-            <input type="password" required />
-            <label> Confirm Password</label>
-            <input type="password" required />
-            <label> Current Weight (lbs)</label>
-            <input type="number" required />
-            <p>
-              By registering, you aree to Forty Pound's{' '}
-              <Link to="/">Terms of Conditions</Link> and{' '}
-              <Link to="/">Privacy Policy</Link>
-            </p>
-            <button type="submit">Register</button>
-          </form>
+          {!login ? (
+            <Register switch={switchAuth} />
+          ) : (
+            <Login switch={switchAuth} />
+          )}
         </div>
       </div>
     </StyledLoginContainer>
@@ -62,7 +52,7 @@ const StyledLoginContainer = styled.main`
 
     .title {
       width: 100%;
-      height: 8%;
+      height: 7%;
       background-color: ${(props) => props.theme.white};
       border-radius: 8px 8px 0 0;
       display: flex;
@@ -81,7 +71,7 @@ const StyledLoginContainer = styled.main`
       }
 
       h3 {
-        font-size: 1.1rem;
+        font-size: 1rem;
         opacity: 0.8;
       }
     }
