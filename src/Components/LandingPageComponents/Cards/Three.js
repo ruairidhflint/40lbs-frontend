@@ -43,6 +43,10 @@ const StyledCard = styled.div`
     transition: transform 0.3s ease-in-out;
   }
 
+  @media (max-width: 860px) {
+    height: 600px;
+  }
+
   .title {
     width: 100%;
     height: 17%;

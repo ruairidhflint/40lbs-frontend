@@ -50,6 +50,10 @@ const StyledCard = styled.div`
     transition: transform 0.3s ease-in-out;
   }
 
+  @media(max-width: 860px) {
+    height: 600px;
+  }
+
   .title {
     width: 100%;
     height: 17%;
@@ -86,6 +90,10 @@ const StyledCard = styled.div`
         font-size: 0.99rem;
         opacity: 0.85;
         margin-bottom: 0.5rem;
+
+        @media(max-width:1111px){
+            font-size: 0.85rem;
+          }
       }
     }
 

@@ -85,7 +85,7 @@ const StyledOverlay = styled.div`
     font-weight: bold;
     text-align: center;
 
-    @media (max-width: 700px) {
+    @media (max-width: 750px) {
       font-size: 3.9rem;
     }
 
@@ -134,7 +134,7 @@ const StyledOverlay = styled.div`
       border: none;
     }
 
-    @media (max-width: 690px) {
+    @media (max-width: 710px) {
       margin: 1rem 0.2rem;
       width: 110px;
     }

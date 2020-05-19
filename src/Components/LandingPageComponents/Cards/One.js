@@ -52,6 +52,10 @@ const StyledCard = styled.div`
   flex-direction: column;
   transition: transform 0.3s ease-in-out;
 
+  @media(max-width: 860px) {
+    height: 600px;
+  }
+
   :hover {
     transform: scale(1.03);
     transition: transform 0.3s ease-in-out;
