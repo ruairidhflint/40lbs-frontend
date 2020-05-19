@@ -6,25 +6,31 @@ import Register from '../Components/AuthComponents/Register';
 import Login from '../Components/AuthComponents/Login';
 
 function LoginRegister(props) {
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(() => {
+   if(props.location.pathname === '/login'){
+     return true;
+   } else {
+     return false;
+   }
+  });
 
   const switchAuth = () => {
     setLogin(!login);
   };
 
-  useEffect(() => {
-    if (props.location.pathname === '/login') {
-      setLogin(true);
-    }
-  }, [props.location.pathname]);
+  // useEffect(() => {
+  //   if (props.location.pathname === '/login') {
+  //     setLogin(true);
+  //   }
+  // }, [props.location.pathname]);
   return (
     <StyledLoginContainer>
       <div className="container">
-        <div className="title">
+        {/* <div className="title">
           <Link to="/">
             <h3>forty pounds</h3>
           </Link>
-        </div>
+        </div> */}
         <div className="main">
           {!login ? (
             <Register switch={switchAuth} />
@@ -84,7 +90,7 @@ const StyledLoginContainer = styled.main`
 
     .main {
       width: 100%;
-      height: 92%;
+      height: 100%;
       background-color: ${(props) => props.theme.white};
       display: flex;
       flex-direction: column;
@@ -173,6 +179,14 @@ const StyledLoginContainer = styled.main`
         color: ${(props) => props.theme.white};
         font-size: 1.2rem;
         margin-top: 1.2rem;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        :hover {
+          opacity: 0.8;
+          transform: scale(0.95);
+          transition: all 0.3s ease-in-out;
+        }
       }
     }
   }

@@ -16,7 +16,7 @@ function Register(props) {
         <label> Current Weight (lbs)</label>
         <input type="number" required />
         <p>
-          By registering, you aree to Forty Pound's{' '}
+          By registering, you agree to Forty Pound's{' '}
           <Link to="/">Terms of Conditions</Link> and{' '}
           <Link to="/">Privacy Policy</Link>
         </p>
