@@ -36,7 +36,7 @@ function Hero() {
           <Link to="/login">
             <button>Sign Up</button>
           </Link>
-          <a href="#test">
+          <a href="#more">
             <button>Learn More</button>
           </a>
         </div>
@@ -63,7 +63,7 @@ const StyledFade = styled.section`
   position: absolute;
   transition: transform 2s ease-in-out;
   transform: ${(props) => (props.visible ? 'translate(120vw)' : null)};
-  display: ${props => props.hide ? 'none' : 'block'};
+  display: ${(props) => (props.hide ? 'none' : 'block')};
 `;
 
 const StyledOverlay = styled.div`

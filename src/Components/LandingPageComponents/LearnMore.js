@@ -1,10 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import AboutCard from './AboutCard';
+
 function LearnMore() {
   return (
     <StyledLearnMore>
-      <div id="test"></div>
+      <div id="more">
+        <AboutCard />
+        <AboutCard />
+        <AboutCard />
+      </div>
     </StyledLearnMore>
   );
 }
@@ -15,8 +21,8 @@ const StyledLearnMore = styled.section`
   margin-top: 50px;
   background: linear-gradient(
     180deg,
-    ${props => props.theme.white} 0%,
-    ${props => props.theme.background} 15%
+    ${(props) => props.theme.white} 0%,
+    ${(props) => props.theme.background} 15%
   );
   position: absolute;
   bottom: -80%;
