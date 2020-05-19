@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -10,10 +10,13 @@ function LoginRegister(props) {
 
   const switchAuth = () => {
     setLogin(!login);
-  }; 
+  };
 
-  console.log(props)
-
+  useEffect(() => {
+    if (props.location.pathname === '/login') {
+      setLogin(true);
+    }
+  }, [props.location.pathname]);
   return (
     <StyledLoginContainer>
       <div className="container">
