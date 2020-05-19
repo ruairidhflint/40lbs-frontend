@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="AppContainer">
       <Route exact path="/" component={LandingPage} />
-      <Route exact path="/login" component={LoginRegister} />
+      <Route path="/(login|register)/" component={LoginRegister} />
     </div>
   );
 }

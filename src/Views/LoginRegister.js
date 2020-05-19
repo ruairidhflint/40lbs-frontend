@@ -5,12 +5,14 @@ import styled from 'styled-components';
 import Register from '../Components/AuthComponents/Register';
 import Login from '../Components/AuthComponents/Login';
 
-function LoginRegister() {
+function LoginRegister(props) {
   const [login, setLogin] = useState(false);
 
   const switchAuth = () => {
     setLogin(!login);
-  };
+  }; 
+
+  console.log(props)
 
   return (
     <StyledLoginContainer>
