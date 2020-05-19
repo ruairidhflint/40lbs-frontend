@@ -9,13 +9,13 @@ function Three() {
       </div>
       <div className="main">
         <p>
-          ‟Simple to use, aesthetically pleasing and no superfluous features”
+          ‟Simple to use, aesthetically pleasing with no nonsense features.”
           <span>- Ryan</span>
         </p>
         <p>
           ‟I needed to gain 10lbs for a competition at a very specific rate; 40
           pounds allowed me to keep visual track of my daily progress - far
-          superior to pen and paper!” <span>- Thomas M</span>
+          superior to pen and paper.” <span>- Thomas M</span>
         </p>
         <p>
           ‟Holding myself accountable my sharing weekly progress has been a

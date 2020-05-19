@@ -11,7 +11,17 @@ function Two() {
       </div>
       <div className="main">
         <div className="text">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <p>
+            Forty Pounds was built for simplicity and focus. It allows you to
+            track your weight and set related goals with minimal distraction,
+            superfluous features or unnecessary procedure.
+          </p>
+          <p>
+            {' '}
+            Your progress is tracked with easy to understand graphs and results
+            can be shared to social media platforms for accountability if
+            desired.
+          </p>
         </div>
         <div className="photo">
           <img src={Me} alt="Me!" />
@@ -64,17 +74,19 @@ const StyledCard = styled.div`
     align-items: center;
 
     .text {
-        height: 55%;
-        width: 100%;
+      height: 55%;
+      width: 100%;
 
-        p {
-            margin: 0 auto;
-            width: 90%;
-            text-align: center;
-            line-height: 1.3;
-            font-size: 0.99rem;
-            opacity: 0.85;
-        }
+      p {
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+        text-align: center;
+        line-height: 1.3;
+        font-size: 0.99rem;
+        opacity: 0.85;
+        margin-bottom: 0.5rem;
+      }
     }
 
     .photo {
@@ -90,7 +102,7 @@ const StyledCard = styled.div`
     }
 
     span {
-        font-size: 0.8rem;
+      font-size: 0.8rem;
     }
   }
 

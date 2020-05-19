@@ -22,7 +22,7 @@ function One() {
           <div className="img-cont">
             <img src={Graph} alt="thumbs up" />
           </div>
-          <p>Monitor progress with detailed graphic display</p>
+          <p>Monitor progress with detailed graphical display</p>
         </div>
         <div className="feature">
           <div className="img-cont">
