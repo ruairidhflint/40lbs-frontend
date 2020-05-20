@@ -2,7 +2,7 @@ import React from 'react';
 
 function Login(props) {
   return (
-    <>
+    <div className="login">
       <h4>Log in to your account</h4>
       <span onClick={props.switch}>Not registered?</span>
       <form>
@@ -12,7 +12,7 @@ function Login(props) {
         <input type="password" required />
         <button type="submit">Login</button>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -8,7 +8,7 @@ function Register(props) {
     return <Spinner />;
   }
   return (
-    <>
+    <div className="register">
       <h4>Create your account</h4>
       <span onClick={props.switch}>Already registered?</span>
       <form>
@@ -27,7 +27,7 @@ function Register(props) {
         </p>
         <button type="submit">Register</button>
       </form>
-    </>
+    </div>
   );
 }
 
