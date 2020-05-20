@@ -14,7 +14,7 @@ function LoginRegister(props) {
     }
   });
 
-  const [spinning, setSpinning] = useState(false);
+  const [spinning, setSpinning] = useState(true);
 
   const switchAuth = () => {
     setLogin(!login);
@@ -25,7 +25,7 @@ function LoginRegister(props) {
           {!login ? (
             <Register switch={switchAuth} spinning={spinning} />
           ) : (
-            <Login switch={switchAuth} />
+            <Login switch={switchAuth} spinning={spinning}/>
           )}
       </div>
     </StyledLoginContainer>

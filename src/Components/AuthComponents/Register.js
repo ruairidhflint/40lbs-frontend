@@ -5,7 +5,11 @@ import Spinner from '../Spinner';
 
 function Register(props) {
   if (props.spinning) {
-    return <Spinner />;
+    return (
+      <div className="register">
+        <Spinner />
+      </div>
+    );
   }
   return (
     <div className="register">

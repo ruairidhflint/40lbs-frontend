@@ -1,6 +1,15 @@
 import React from 'react';
 
+import Spinner from '../Spinner';
+
 function Login(props) {
+  if (props.spinning) {
+    return (
+      <div className="login">
+        <Spinner />
+      </div>
+    );
+  }
   return (
     <div className="login">
       <h4>Log in to your account</h4>
