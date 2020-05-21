@@ -21,7 +21,7 @@ function Login(props) {
       .post('/auth/login', input)
       .then((res) => {
         props.setSpinning(false);
-        if (res.data.user.confirmed) {
+        if (res.data.user) {
           localStorage.setItem('authorization', res.data.token);
           props.setUser(res.data.user);
           props.history.push('/dashboard');
@@ -29,7 +29,8 @@ function Login(props) {
           props.history.push('/confirm');
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err.message)
         setInput({ email: '', password: '' });
         setIncorrectDetails(true);
         props.setSpinning(false);

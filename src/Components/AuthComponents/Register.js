@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { axiosWithBase } from '../../Helpers/axios';
+
 import Spinner from '../Spinner';
 
 function Register(props) {
@@ -8,17 +10,29 @@ function Register(props) {
     email: '',
     password: '',
     confirm: '',
-    weight: null,
+    weight: "",
   });
 
   const submit = (e) => {
     e.preventDefault();
 
+    const newUser = {
+      email: input.email,
+      password: input.password,
+      weight: input.weight,
+    };
+
     if (input.password !== input.confirm) {
       return;
     }
-
-    console.log(input);
+    axiosWithBase
+      .post('/auth/register', newUser)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   if (props.spinning) {
@@ -44,8 +58,8 @@ function Register(props) {
         <label> Password</label>
         <input
           type="password"
-          minlength="8"
-          maxlength="25"
+          minLength="8"
+          maxLength="25"
           pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
           title="8 - 25 characters long. Must include one number and one letter."
           name="email"
@@ -59,8 +73,8 @@ function Register(props) {
             border: input.password !== input.confirm ? '2px solid red' : null,
           }}
           type="password"
-          minlength="8"
-          maxlength="25"
+          minLength="8"
+          maxLength="25"
           pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
           title="8 - 25 characters long. Must include one number and one letter."
           name="email"
