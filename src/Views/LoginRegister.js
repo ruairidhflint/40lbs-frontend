@@ -153,10 +153,6 @@ const StyledLoginContainer = styled.main`
         border-radius: 4px;
         transition: background-color 0.3s ease-in-out;
 
-        :valid {
-          border: 2px solid ${(props) => props.theme.green};
-        }
-
         @media (max-width: 400px) {
           width: 100%;
         }
@@ -166,6 +162,10 @@ const StyledLoginContainer = styled.main`
           border: 2px solid ${(props) => props.theme.mainBlue};
           border-radius: 4px;
         }
+
+        :valid {
+          border: 2px solid ${(props) => props.theme.green};
+        } 
 
         :hover {
           background-color: ${(props) => props.theme.background};
