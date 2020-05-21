@@ -92,6 +92,7 @@ const StyledLoginContainer = styled.main`
 
       span {
         font-size: 0.7rem;
+        opacity: 0.5;
         margin-bottom: 1rem;
         cursor: pointer;
         transition: color 0.2s ease-in-out;
