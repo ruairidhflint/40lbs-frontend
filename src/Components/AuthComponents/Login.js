@@ -30,7 +30,7 @@ function Login(props) {
         }
       })
       .catch((err) => {
-        console.log(err.message)
+        console.log(err.message);
         setInput({ email: '', password: '' });
         setIncorrectDetails(true);
         props.setSpinning(false);

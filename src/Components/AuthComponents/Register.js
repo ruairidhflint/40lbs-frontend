@@ -6,32 +6,48 @@ import { axiosWithBase } from '../../Helpers/axios';
 import Spinner from '../Spinner';
 
 function Register(props) {
+  const [error, setError] = useState(null);
   const [input, setInput] = useState({
     email: '',
     password: '',
     confirm: '',
-    weight: "",
+    weight: '',
   });
+
+  const changeHandler = (e) => {
+    setError(null);
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
 
   const submit = (e) => {
     e.preventDefault();
-
+    props.setSpinning(true);
     const newUser = {
       email: input.email,
       password: input.password,
-      weight: input.weight,
+      currentWeight: input.weight,
+      startWeight: input.weight,
     };
 
     if (input.password !== input.confirm) {
       return;
     }
+
     axiosWithBase
       .post('/auth/register', newUser)
-      .then((res) => {
-        console.log(res.data);
+      .then(() => {
+        props.setSpinning(false);
+        props.history.push('/confirm');
       })
       .catch((err) => {
-        console.log(err);
+        if (err.response.status === 400) {
+          setInput({ email: '', password: '', confirm: '', weight: '' });
+          setError('Email already in use');
+        } else {
+          setInput({ email: '', password: '', confirm: '', weight: '' });
+          setError('There was an error during registration.');
+        }
+        props.setSpinning(false);
       });
   };
 
@@ -52,7 +68,9 @@ function Register(props) {
           type="email"
           name="email"
           value={input.email}
-          onChange={(e) => setInput({ ...input, email: e.target.value })}
+          style={{border: error ? "2px solid red" : null}}
+          placeholder={error ? error : null}
+          onChange={changeHandler}
           required
         />
         <label> Password</label>
@@ -62,9 +80,9 @@ function Register(props) {
           maxLength="25"
           pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
           title="8 - 25 characters long. Must include one number and one letter."
-          name="email"
+          name="password"
           value={input.password}
-          onChange={(e) => setInput({ ...input, password: e.target.value })}
+          onChange={changeHandler}
           required
         />
         <label> Confirm Password</label>
@@ -77,9 +95,9 @@ function Register(props) {
           maxLength="25"
           pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
           title="8 - 25 characters long. Must include one number and one letter."
-          name="email"
+          name="confirm"
           value={input.confirm}
-          onChange={(e) => setInput({ ...input, confirm: e.target.value })}
+          onChange={changeHandler}
           required
         />
         <label> Current Weight (lbs)</label>
@@ -87,9 +105,9 @@ function Register(props) {
           type="number"
           min="0"
           max="1000"
-          name="email"
+          name="weight"
           value={input.weight}
-          onChange={(e) => setInput({ ...input, weight: e.target.value })}
+          onChange={changeHandler}
           required
         />
         <p>
