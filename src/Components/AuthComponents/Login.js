@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import Spinner from '../Spinner';
 
@@ -20,7 +21,7 @@ function Login(props) {
   return (
     <div className="login">
       <h4>Log in to your account</h4>
-      <span onClick={props.switch}>Not registered?</span>
+      <Link to="/register">Not registered?</Link>
       <form onSubmit={submit}>
         <label>Email</label>
         <input

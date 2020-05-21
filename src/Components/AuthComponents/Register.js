@@ -31,7 +31,7 @@ function Register(props) {
   return (
     <div className="register">
       <h4>Create your account</h4>
-      <span onClick={props.switch}>Already registered?</span>
+      <Link to="login">Already registered?</Link>
       <form onSubmit={submit}>
         <label>Email</label>
         <input

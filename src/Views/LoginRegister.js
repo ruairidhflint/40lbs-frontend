@@ -1,31 +1,24 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import { Route } from 'react-router-dom';
+
 import Register from '../Components/AuthComponents/Register';
 import Login from '../Components/AuthComponents/Login';
 
-function LoginRegister(props) {
-  const [login, setLogin] = useState(() => {
-    if (props.location.pathname === '/login') {
-      return true;
-    } else {
-      return false;
-    }
-  });
-
+function LoginRegister() {
   const [spinning, setSpinning] = useState(false);
-
-  const switchAuth = () => {
-    setLogin(!login);
-  };
   return (
     <StyledLoginContainer>
       <div className="container">
-        {!login ? (
-          <Register switch={switchAuth} spinning={spinning} />
-        ) : (
-          <Login switch={switchAuth} spinning={spinning} />
-        )}
+        <Route
+          path="/login"
+          render={(props) => <Login {...props} spinning={spinning} />}
+        />
+        <Route
+          path="/register"
+          render={(props) => <Register {...props} spinning={spinning} />}
+        />
       </div>
     </StyledLoginContainer>
   );
@@ -90,7 +83,9 @@ const StyledLoginContainer = styled.main`
         }
       }
 
-      span {
+      a {
+        text-decoration: none;
+        color: ${(props) => props.theme.mainText};
         font-size: 0.7rem;
         opacity: 0.5;
         margin-bottom: 1rem;
@@ -165,7 +160,7 @@ const StyledLoginContainer = styled.main`
 
         :valid {
           border: 2px solid ${(props) => props.theme.green};
-        } 
+        }
 
         :hover {
           background-color: ${(props) => props.theme.background};
