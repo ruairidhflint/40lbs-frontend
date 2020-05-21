@@ -6,18 +6,31 @@ import { Route } from 'react-router-dom';
 import Register from '../Components/AuthComponents/Register';
 import Login from '../Components/AuthComponents/Login';
 
-function LoginRegister() {
+function LoginRegister({ setUser }) {
   const [spinning, setSpinning] = useState(false);
   return (
     <StyledLoginContainer>
       <div className="container">
         <Route
           path="/login"
-          render={(props) => <Login {...props} spinning={spinning} setSpinning={setSpinning}/>}
+          render={(props) => (
+            <Login
+              {...props}
+              spinning={spinning}
+              setSpinning={setSpinning}
+              setUser={setUser}
+            />
+          )}
         />
         <Route
           path="/register"
-          render={(props) => <Register {...props} spinning={spinning} setSpinning={setSpinning} />}
+          render={(props) => (
+            <Register
+              {...props}
+              spinning={spinning}
+              setSpinning={setSpinning}
+            />
+          )}
         />
       </div>
     </StyledLoginContainer>

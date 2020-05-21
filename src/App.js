@@ -17,7 +17,10 @@ function App() {
     <div className="AppContainer">
       <Route path="/" component={Navigation} />
       <Route exact path="/" component={LandingPage} />
-      <Route path="/(login|register)/" component={LoginRegister} />
+      <Route
+        path="/(login|register)/"
+        render={(props) => <LoginRegister {...props} setUser={setUser} />}
+      />
       <Route path="/terms" component={TermsAndConditions} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/confirm" component={ConfirmEmail} />

@@ -14,7 +14,8 @@ function Login(props) {
     axiosWithBase
       .post('/auth/login', input)
       .then((res) => {
-        console.log(res.data);
+        localStorage.setItem('authorization', res.data.token);
+        props.setUser(res.data.user);
         props.setSpinning(false);
       })
       .catch((err) => {
