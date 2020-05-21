@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Dashboard({user}) {
-  console.log(user);
+function Dashboard(props) {
+  console.log(props);
   return (
     <h1 style={{fontSize: '22vw'}}>dashboard</h1>
     );

@@ -1,6 +1,12 @@
 # TODO
 
-- Connect API to frontend and get login/registration working
+- Allow confirmation from success page
+- Alter navigation based on logged in or out
+- Research reset password
+- Resend link to confirm
+- Logic to redirect to dashboard if user is logged in - from Login page
+- Bounce out of dashboard if user is not logged in
+- Persist user data! (API call, localstorage?)
 
 # COMPLETE
 
@@ -8,3 +14,4 @@
 - Build out terms and conditions page/privacy policy page
 - Build email confirmation sent page + successful confirmation page
 - Build out custom error handling for login/registration forms
+- Connect API to frontend and get login/registration working
