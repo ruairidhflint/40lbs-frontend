@@ -1,9 +1,9 @@
 # TODO
 
-- Allow confirmation from success page
 - Research reset password
 - Resend link to confirm
 - Persist user data! (API call, localstorage?)
+- NEED TO BUILD A RETRIEVE USER INFO ENDPOINT WITH JUST TOKEN REQUIRED THAT GIVES SAME INFO AS LOGINA
 
 # COMPLETE
 
@@ -18,3 +18,4 @@
 - Add ability to logout
 - Style Logout button
 - Move navigation file to more appropriate place
+- Allow confirmation from success page

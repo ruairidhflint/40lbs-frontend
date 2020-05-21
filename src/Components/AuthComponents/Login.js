@@ -23,6 +23,7 @@ function Login(props) {
         props.setSpinning(false);
         if (res.data.user) {
           localStorage.setItem('authorization', res.data.token);
+          localStorage.setItem('user', JSON.stringify(res.data.user));
           props.setUser(res.data.user);
           props.history.push('/dashboard');
         } else {

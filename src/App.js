@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { ProtectedRoute } from './Helpers/ProtectedRoute';
 
@@ -13,7 +13,20 @@ import SuccessfulConfirm from './Views/SuccessfulConfirm';
 import Dashboard from './Views/Dashboard';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const tempUser = JSON.parse(localStorage.getItem('user'));
+
+    if(tempUser){
+      return tempUser;
+    } else {
+      return null;
+    }
+  });
+
+  // useEffect(() => {
+  //   const tempUser = JSON.parse(localStorage.getItem('user'));
+  //   console.log(tempUser);
+  // })
   return (
     <div className="AppContainer">
       <Route
