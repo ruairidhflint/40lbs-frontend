@@ -14,6 +14,15 @@ function TermsAndConditions() {
       </p>
 
       <p>
+        First and foremost, we are not doctors, medical officials or
+        nutritionists. Weight management should be guided by research, the
+        advice of your General Practitioner or other health care expert. Forty
+        Pounds is a tool to allow tracking of weight but does not take
+        responsibility for your health, fitness or actions regarding exercise
+        and diet.
+      </p>
+
+      <p>
         By accessing this website we assume you accept these terms and
         conditions. Do not continue to use Forty Pounds if you do not agree to
         take all of the terms and conditions stated on this page.
@@ -100,7 +109,7 @@ function TermsAndConditions() {
 
       <h4>Your Privacy</h4>
       <p>
-        Please read <Link to="/privacy">Privacy Policy</Link>
+        Please read our <Link to="/privacy">Privacy Policy</Link>
       </p>
 
       <h4>Reservation of Rights</h4>
@@ -172,7 +181,7 @@ function TermsAndConditions() {
 const StyledTermContainer = styled.section`
   max-width: 1220px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 3.5rem 2rem;
 
   h3 {
     font-size: 3.5rem;
@@ -218,7 +227,6 @@ const StyledTermContainer = styled.section`
 
   p {
     padding-left: 0.5rem;
-    max-width: 1080px;
     font-size: 1.3rem;
     line-height: 1.2;
     opacity: 0.8;
