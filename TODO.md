@@ -4,7 +4,6 @@
 - Research reset password
 - Resend link to confirm
 - Persist user data! (API call, localstorage?)
-- Move navigation file to more appropriate place
 
 # COMPLETE
 
@@ -18,3 +17,4 @@
 - Alter navigation based on logged in or out
 - Add ability to logout
 - Style Logout button
+- Move navigation file to more appropriate place

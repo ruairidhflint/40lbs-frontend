@@ -68,7 +68,7 @@ function Register(props) {
           type="email"
           name="email"
           value={input.email}
-          style={{border: error ? "2px solid red" : null}}
+          style={{ border: error ? '2px solid red' : null }}
           placeholder={error ? error : null}
           onChange={changeHandler}
           required
