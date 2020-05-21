@@ -1,29 +1,72 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import queryString from 'query-string';
 
+import { axiosWithBase } from '../Helpers/axios';
+
+import Spinner from '../Components/Reusables/Spinner';
 import Success from '../Assets/success.svg';
+import Error from '../Assets/error.svg';
 
 function SuccessfulConfirm(props) {
+  const [state, setState] = useState('spinning');
   const { token } = queryString.parse(props.location.search);
 
-  return (
-    <StyledSuccessContainer>
-      <div className="container">
-        <div className="img-cont">
-          <img src={Success} alt="mail box" />
+  useEffect(() => {
+    axiosWithBase
+      .patch('/auth/confirm', { token })
+      .then((res) => {
+        setState('success');
+      })
+      .catch(() => {
+        setState('error');
+      });
+  });
+
+  if (state === 'spinning') {
+    return (
+      <StyledSuccessContainer>
+        <Spinner />
+      </StyledSuccessContainer>
+    );
+  } else if (state === 'success') {
+    return (
+      <StyledSuccessContainer>
+        <div className="container">
+          <div className="img-cont">
+            <img src={Success} alt="mail box" />
+          </div>
+          <div className="text-cont">
+            <h3>Success!</h3>
+            <p>
+              Your email has been confirmed. Please click{' '}
+              <Link to="/login">here</Link> to login and start using Forty
+              Pounds.
+            </p>
+          </div>
         </div>
-        <div className="text-cont">
-          <h3>Success!</h3>
-          <p>
-            Your email has been confirmed. Please click{' '}
-            <Link to="/login">here</Link> to login and start using Forty Pounds.
-          </p>
+      </StyledSuccessContainer>
+    );
+  } else {
+    return (
+      <StyledSuccessContainer>
+        <div className="container">
+          <div className="img-cont">
+            <img src={Error} alt="error" />
+          </div>
+          <div className="text-cont">
+            <h3>Uh oh!</h3>
+            <p>
+              There seems to have been a problem verifying your account. Please{' '}
+              <a href="mailto:roryflintphoto@gmail.com">contact us</a> and we'll
+              sort the problem as soon as possible.
+            </p>
+          </div>
         </div>
-      </div>
-    </StyledSuccessContainer>
-  );
+      </StyledSuccessContainer>
+    );
+  }
 }
 
 const StyledSuccessContainer = styled.main`
