@@ -153,6 +153,10 @@ const StyledLoginContainer = styled.main`
         border-radius: 4px;
         transition: background-color 0.3s ease-in-out;
 
+        :valid {
+          border: 2px solid ${(props) => props.theme.green};
+        }
+
         @media (max-width: 400px) {
           width: 100%;
         }
