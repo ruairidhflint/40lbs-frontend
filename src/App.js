@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 
 // View Imports
@@ -9,8 +9,10 @@ import TermsAndConditions from './Views/TandC';
 import Privacy from './Views/Privacy';
 import ConfirmEmail from './Views/ConfirmEmail';
 import SuccessfulConfirm from './Views/SuccessfulConfirm';
+import Dashboard from './Views/Dashboard';
 
 function App() {
+  const [user, setUser] = useState(null);
   return (
     <div className="AppContainer">
       <Route path="/" component={Navigation} />
@@ -20,6 +22,10 @@ function App() {
       <Route path="/privacy" component={Privacy} />
       <Route path="/confirm" component={ConfirmEmail} />
       <Route path="/success" component={SuccessfulConfirm} />
+      <Route
+        path="/dashboard"
+        render={(props) => <Dashboard {...props} user={user} />}
+      />
     </div>
   );
 }

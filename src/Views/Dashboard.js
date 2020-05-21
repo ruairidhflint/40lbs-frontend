@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Dashboard() {
+function Dashboard({user}) {
+  console.log(user);
   return (
-    <h1>Dashboard Page</h1>
+    <h1 style={{fontSize: '22vw'}}>dashboard</h1>
     );
 }
 
