@@ -16,7 +16,12 @@ function App() {
   const [user, setUser] = useState(null);
   return (
     <div className="AppContainer">
-      <Route path="/" component={Navigation} />
+      <Route
+        path="/"
+        render={(props) => (
+          <Navigation {...props} user={user} setUser={setUser} />
+        )}
+      />
       <Route exact path="/" component={LandingPage} />
       <ProtectedRoute
         path="/(login|register)/"

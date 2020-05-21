@@ -5,6 +5,7 @@
 - Research reset password
 - Resend link to confirm
 - Persist user data! (API call, localstorage?)
+- Move navigation file to more appropriate place
 
 # COMPLETE
 
@@ -15,4 +16,3 @@
 - Connect API to frontend and get login/registration working
 - Logic to redirect to dashboard if user is logged in - from Login page
 - Bounce out of dashboard if user is not logged in
-    

@@ -2,14 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-function Navigation() {
+function Navigation(props) {
+  const logout = () => {
+    localStorage.clear();
+    props.setUser(null);
+    props.history.push('/');
+  };
   return (
     <StyledHeader>
       <nav>
-        <Link to='/'>
+        <Link to="/">
           <h3>forty pounds</h3>
         </Link>
-        <Link to="/login">Login</Link>
+        {!props.user ? (
+          <Link to="/login">Login</Link>
+        ) : (
+          <button onClick={logout}>Logout</button>
+        )}
       </nav>
     </StyledHeader>
   );
@@ -27,8 +36,8 @@ const StyledHeader = styled.header`
     align-items: baseline;
     padding: 0 4rem;
 
-    @media(max-width: 600px) {
-        padding: 0 2rem;
+    @media (max-width: 600px) {
+      padding: 0 2rem;
     }
 
     h3 {
@@ -36,7 +45,8 @@ const StyledHeader = styled.header`
       font-weight: bold;
     }
 
-    a {
+    a,
+    button {
       color: inherit;
       text-decoration: none;
       cursor: pointer;
