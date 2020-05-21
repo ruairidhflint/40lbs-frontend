@@ -18,17 +18,24 @@ function App() {
     <div className="AppContainer">
       <Route path="/" component={Navigation} />
       <Route exact path="/" component={LandingPage} />
-      {/* <Route
+      <ProtectedRoute
         path="/(login|register)/"
-        render={(props) => <LoginRegister {...props} setUser={setUser} />}
-      /> */}
-      <ProtectedRoute path="/(login|register)/" user={user ? false : true} redirect="/dashboard"  setUser={setUser} component={LoginRegister} />
+        user={user ? false : true}
+        redirect="/dashboard"
+        setUser={setUser}
+        component={LoginRegister}
+      />
 
       <Route path="/terms" component={TermsAndConditions} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/confirm" component={ConfirmEmail} />
       <Route path="/success" component={SuccessfulConfirm} />
-      <ProtectedRoute path="/dashboard" user={user} redirect="/" component={Dashboard} />
+      <ProtectedRoute
+        path="/dashboard"
+        user={user}
+        redirect="/"
+        component={Dashboard}
+      />
     </div>
   );
 }
