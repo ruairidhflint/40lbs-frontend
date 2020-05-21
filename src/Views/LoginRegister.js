@@ -13,11 +13,11 @@ function LoginRegister() {
       <div className="container">
         <Route
           path="/login"
-          render={(props) => <Login {...props} spinning={spinning} />}
+          render={(props) => <Login {...props} spinning={spinning} setSpinning={setSpinning}/>}
         />
         <Route
           path="/register"
-          render={(props) => <Register {...props} spinning={spinning} />}
+          render={(props) => <Register {...props} spinning={spinning} setSpinning={setSpinning} />}
         />
       </div>
     </StyledLoginContainer>

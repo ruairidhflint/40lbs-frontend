@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+
+import { axiosWithBase } from '../../Helpers/axios';
 
 import Spinner from '../Spinner';
-
-const instance = axios.create({
-  baseURL: 'http://localhost:8000/',
-});
 
 function Login(props) {
   const [input, setInput] = useState({ email: '', password: '' });
 
   const submit = (e) => {
     e.preventDefault();
-    instance
+    props.setSpinning(true);
+    axiosWithBase
       .post('/auth/login', input)
       .then((res) => {
         console.log(res.data);
+        props.setSpinning(false);
       })
       .catch((err) => {
         console.log(err);
+        props.setSpinning(false);
       });
   };
 
