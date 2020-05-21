@@ -87,7 +87,7 @@ const StyledLoginContainer = styled.main`
         text-decoration: none;
         color: ${(props) => props.theme.mainText};
         font-size: 0.7rem;
-        opacity: 0.5;
+        opacity: 0.7;
         margin-bottom: 1rem;
         cursor: pointer;
         transition: color 0.2s ease-in-out;
