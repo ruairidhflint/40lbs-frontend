@@ -88,6 +88,15 @@ const StyledPrivacyContainer = styled.section`
     @media (max-width: 600px) {
       font-size: 1.1rem;
     }
+
+    a {
+      transition: color 0.2s ease-in-out;
+      color: ${(props) => props.theme.mainBlue};
+      :hover {
+        color: ${(props) => props.theme.green};
+        transition: color 0.2s ease-in-out;
+      }
+    }
   }
 `;
 
