@@ -6,7 +6,13 @@ import { axiosWithBase } from '../../Helpers/axios';
 import Spinner from '../Spinner';
 
 function Login(props) {
+  const [incorrectDetails, setIncorrectDetails] = useState(false);
   const [input, setInput] = useState({ email: '', password: '' });
+
+  const changeHandler = (e) => {
+    setIncorrectDetails(false);
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
 
   const submit = (e) => {
     e.preventDefault();
@@ -14,12 +20,18 @@ function Login(props) {
     axiosWithBase
       .post('/auth/login', input)
       .then((res) => {
-        localStorage.setItem('authorization', res.data.token);
-        props.setUser(res.data.user);
         props.setSpinning(false);
+        if (res.data.user.confirmed) {
+          localStorage.setItem('authorization', res.data.token);
+          props.setUser(res.data.user);
+          props.history.push('/dashboard');
+        } else {
+          props.history.push('/confirm');
+        }
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        setInput({ email: '', password: '' });
+        setIncorrectDetails(true);
         props.setSpinning(false);
       });
   };
@@ -41,15 +53,18 @@ function Login(props) {
           type="email"
           name="email"
           value={input.email}
-          onChange={(e) => setInput({ ...input, email: e.target.value })}
+          placeholder={incorrectDetails ? 'Incorrect login details' : null}
+          style={{ border: incorrectDetails ? '2px solid red' : null }}
+          onChange={changeHandler}
           required
         />
         <label> Password</label>
         <input
           type="password"
           name="password"
+          style={{ border: incorrectDetails ? '2px solid red' : null }}
           value={input.password}
-          onChange={(e) => setInput({ ...input, password: e.target.value })}
+          onChange={changeHandler}
           required
         />
         <button type="submit">Login</button>

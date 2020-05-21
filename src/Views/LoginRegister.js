@@ -161,6 +161,11 @@ const StyledLoginContainer = styled.main`
         border-radius: 4px;
         transition: background-color 0.3s ease-in-out;
 
+        ::placeholder {
+          font-size: 0.9rem;
+          color: ${props => props.theme.red};
+        }
+
         @media (max-width: 400px) {
           width: 100%;
         }
