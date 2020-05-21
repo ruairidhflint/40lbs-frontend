@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import Register from '../Components/AuthComponents/Register';
 import Login from '../Components/AuthComponents/Login';
-import Spinner from '../Components/Spinner';
 
 function LoginRegister(props) {
   const [login, setLogin] = useState(() => {
@@ -14,7 +13,7 @@ function LoginRegister(props) {
     }
   });
 
-  const [spinning, setSpinning] = useState(true);
+  const [spinning, setSpinning] = useState(false);
 
   const switchAuth = () => {
     setLogin(!login);
@@ -22,11 +21,11 @@ function LoginRegister(props) {
   return (
     <StyledLoginContainer>
       <div className="container">
-          {!login ? (
-            <Register switch={switchAuth} spinning={spinning} />
-          ) : (
-            <Login switch={switchAuth} spinning={spinning}/>
-          )}
+        {!login ? (
+          <Register switch={switchAuth} spinning={spinning} />
+        ) : (
+          <Login switch={switchAuth} spinning={spinning} />
+        )}
       </div>
     </StyledLoginContainer>
   );
@@ -34,7 +33,7 @@ function LoginRegister(props) {
 
 const StyledLoginContainer = styled.main`
   width: 100vw;
-  height: 100vh;
+  height: 92vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,7 +71,8 @@ const StyledLoginContainer = styled.main`
       height: 500px;
     }
 
-    .login, .register {
+    .login,
+    .register {
       width: 100%;
       background-color: ${(props) => props.theme.white};
       display: flex;
@@ -152,7 +152,7 @@ const StyledLoginContainer = styled.main`
         border-radius: 4px;
         transition: background-color 0.3s ease-in-out;
 
-        @media(max-width: 400px) {
+        @media (max-width: 400px) {
           width: 100%;
         }
 
