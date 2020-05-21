@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import queryString from 'query-string';
 
 import Success from '../Assets/success.svg';
 
-function SuccessfulConfirm() {
+function SuccessfulConfirm(props) {
+  const { token } = queryString.parse(props.location.search);
+
   return (
     <StyledSuccessContainer>
       <div className="container">
