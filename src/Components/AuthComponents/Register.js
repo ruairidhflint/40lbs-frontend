@@ -26,8 +26,8 @@ function Register(props) {
         <input type="number" required />
         <p>
           By registering, you agree to Forty Pound's{' '}
-          <Link to="/">Terms of Conditions</Link> and{' '}
-          <Link to="/">Privacy Policy</Link>
+          <Link to="/terms">Terms of Conditions</Link> and{' '}
+          <Link to="/privacy">Privacy Policy</Link>
         </p>
         <button type="submit">Register</button>
       </form>
