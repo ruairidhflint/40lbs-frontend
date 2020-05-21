@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 function Navigation(props) {
-  const logout = () => {
+  const logout = (e) => {
+    e.preventDefault();
     localStorage.clear();
     props.setUser(null);
     props.history.push('/');
@@ -47,10 +48,12 @@ const StyledHeader = styled.header`
 
     a,
     button {
+      border: none;
       color: inherit;
       text-decoration: none;
       cursor: pointer;
       transition: opacity 0.3s ease-in-out;
+      font-size: 1rem;
 
       :hover {
         opacity: 0.5;
