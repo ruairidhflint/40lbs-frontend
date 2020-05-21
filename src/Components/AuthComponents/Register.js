@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { axiosWithBase } from '../../Helpers/axios';
 
-import Spinner from '../Spinner';
+import Spinner from '../Reusables/Spinner';
 
 function Register(props) {
   const [error, setError] = useState(null);

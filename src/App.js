@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import { ProtectedRoute } from './Helpers/ProtectedRoute';
 
 // View Imports
-import Navigation from './Components/LandingPageComponents/Navigation';
+import Navigation from './Components/Reusables/Navigation';
 import LandingPage from './Views/Landing';
 import LoginRegister from './Views/LoginRegister';
 import TermsAndConditions from './Views/TandC';

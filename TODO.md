@@ -5,7 +5,6 @@
 - Resend link to confirm
 - Persist user data! (API call, localstorage?)
 - Move navigation file to more appropriate place
-- Style Logout button
 
 # COMPLETE
 
@@ -18,3 +17,4 @@
 - Bounce out of dashboard if user is not logged in
 - Alter navigation based on logged in or out
 - Add ability to logout
+- Style Logout button
