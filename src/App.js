@@ -8,6 +8,7 @@ import LoginRegister from './Views/LoginRegister';
 import TermsAndConditions from './Views/TandC';
 import Privacy from './Views/Privacy';
 import ConfirmEmail from './Views/ConfirmEmail';
+import SuccessfulConfirm from './Views/SuccessfulConfirm';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/terms" component={TermsAndConditions} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/confirm" component={ConfirmEmail} />
+      <Route path="/success" component={SuccessfulConfirm} />
     </div>
   );
 }

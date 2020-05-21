@@ -5,7 +5,7 @@ import Mail from '../Assets/mailsent.svg';
 
 function ConfirmEmail() {
   return (
-    <StyledLoginContainer>
+    <StyledConfirmContainer>
       <div className="container">
         <div className="img-cont">
           <img src={Mail} alt="mail box" />
@@ -18,11 +18,11 @@ function ConfirmEmail() {
           </p>
         </div>
       </div>
-    </StyledLoginContainer>
+    </StyledConfirmContainer>
   );
 }
 
-const StyledLoginContainer = styled.main`
+const StyledConfirmContainer = styled.main`
   width: 100vw;
   height: 92vh;
   display: flex;
