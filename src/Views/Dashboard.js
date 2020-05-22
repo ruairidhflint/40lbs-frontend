@@ -11,6 +11,7 @@ function Dashboard(props) {
     currentWeight: '',
     startWeight: '',
     weights: [],
+    dates: [],
   });
 
   useEffect(() => {
@@ -61,7 +62,11 @@ function Dashboard(props) {
           value={data.startWeight}
           color={'blue'}
         />
-        <SmallCard title={'Current Weight'} value={data.currentWeight} color={'yellow'} />
+        <SmallCard
+          title={'Current Weight'}
+          value={data.currentWeight}
+          color={'yellow'}
+        />
         <SmallCard
           title={'Difference'}
           value={data.currentWeight - data.startWeight}

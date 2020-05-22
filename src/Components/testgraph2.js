@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactApexCharts from 'react-apexcharts';
 
+import Spinner from '../Components/Reusables/Spinner';
+
 function TestGraph2(props) {
   const series = [
     {
@@ -44,11 +46,18 @@ function TestGraph2(props) {
       floating: false,
     },
   };
-  return (
-    <div style={{ width: '82%', marginTop: '1rem' }}>
-      <ReactApexCharts options={options} series={series} type="line" />
-    </div>
-  );
+  if (props.weights.length) {
+    return (
+      <div style={{ width: '82%', marginTop: '1rem' }}>
+        <ReactApexCharts options={options} series={series} type="line" />
+      </div>
+    );
+  }
+  else {
+    return (
+      <Spinner />
+    )
+  }
 }
 
 export default TestGraph2;
