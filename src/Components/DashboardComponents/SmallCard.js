@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import CountUp from 'react-countup';
 
 function SmallCard(props) {
   return (
     <StyledSmallCard color={props.color}>
-      <h3>{props.value}</h3>
+      <h3>
+        <CountUp duration={1.75} end={props.value} />
+      </h3>
     </StyledSmallCard>
   );
 }
