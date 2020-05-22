@@ -47,9 +47,9 @@ function Dashboard(props) {
   }, [props]);
 
   let differenceColor = '#373d3f';
-  if (data.startWeight < 165) {
+  if (data.startWeight < data.currentWeight) {
     differenceColor = '#ff4560';
-  } else if (data.startWeight > 165) {
+  } else if (data.startWeight > data.currentWeight) {
     differenceColor = '#02d8b7';
   }
 
@@ -61,10 +61,10 @@ function Dashboard(props) {
           value={data.startWeight}
           color={'blue'}
         />
-        <SmallCard title={'Current Weight'} value={165} color={'yellow'} />
+        <SmallCard title={'Current Weight'} value={data.currentWeight} color={'yellow'} />
         <SmallCard
           title={'Difference'}
-          value={165 - data.startWeight}
+          value={data.currentWeight - data.startWeight}
           color={'yellow'}
           differenceColor={differenceColor}
         />
