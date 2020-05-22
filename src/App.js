@@ -25,34 +25,36 @@ function App() {
   });
 
   return (
-    <div className="AppContainer">
-      <Route
-        path="/"
-        render={(props) => (
-          <Navigation {...props} user={user} setUser={setUser} />
-        )}
-      />
-      <Route exact path="/" component={LandingPage} />
-      <Route
-        exact
-        path="/(login|register)/"
-        render={(props) => <LoginRegister {...props} setUser={setUser} />}
-      />
+      <div className="AppContainer">
+        <Route
+          path="/"
+          render={(props) => (
+            <Navigation {...props} user={user} setUser={setUser} />
+          )}
+        />
+        <Route exact path="/" component={LandingPage} />
+        <ProtectedRoute
+          path="/(login|register)/"
+          user={user ? false : true}
+          redirect="/dashboard"
+          setUser={setUser}
+          component={LoginRegister}
+        />
 
-      <Route exact path="/terms" component={TermsAndConditions} />
-      <Route exact path="/privacy" component={Privacy} />
-      <Route exact path="/confirm" component={ConfirmEmail} />
-      <Route exact path="/success" component={SuccessfulConfirm} />
-      <ProtectedRoute
-        exact
-        path="/dashboard"
-        user={user}
-        redirect="/"
-        setUser={setUser}
-        component={Dashboard}
-      />
-      <Route exact path="/error" component={ErrorDashboard} />
-    </div>
+        <Route exact path="/terms" component={TermsAndConditions} />
+        <Route exact path="/privacy" component={Privacy} />
+        <Route exact path="/confirm" component={ConfirmEmail} />
+        <Route exact path="/success" component={SuccessfulConfirm} />
+        <ProtectedRoute
+          exact
+          path="/dashboard"
+          user={user}
+          redirect="/"
+          setUser={setUser}
+          component={Dashboard}
+        />
+        <Route exact path="/error" component={ErrorDashboard} />
+      </div>
   );
 }
 export default App;
