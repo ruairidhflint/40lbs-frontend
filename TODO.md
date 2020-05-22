@@ -3,6 +3,10 @@
 - Research reset password
 - Resend link to confirm
 - Build 404 page for routing error
+- Build button to add new weight 
+- Refactor and tidy all code 
+- Write down MVP finalised goals 
+- Consider next structure of App
 
 # COMPLETE
 
