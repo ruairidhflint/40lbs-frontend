@@ -8,16 +8,16 @@ const settings = {
       enabled: false,
     },
     toolbar: {
-      show: false,
+      show: true,
     },
     foreColor: 'rgba(0,0,0,0)',
     animations: {
-      enabled: false,
+      enabled: true,
       easing: 'easeinout',
       speed: 1000,
       dynamicAnimation: {
         enabled: true,
-        speed: 350,
+        speed: 1000,
       },
     },
   },
@@ -38,7 +38,7 @@ const settings = {
   //     },
   //   ],
   // },
- 
+
   dataLabels: {
     enabled: false,
   },
@@ -51,14 +51,13 @@ const settings = {
   },
   grid: {
     row: {
-      show: false,
-      colors: ['#ffffff', 'transparent'],
-      opacity: 0,
+      colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+      opacity: 0.5,
     },
   },
   xaxis: {
     lines: {
-      show: false
+      show: true,
     },
     categories: [
       '22-03-2019',
@@ -85,11 +84,75 @@ const settings = {
     ],
   },
   yaxis: {
-    min: 150,
-    max: 210,
-    lines: {
-      show: false,
-    }
+    show: true,
+    showAlways: true,
+    showForNullSeries: true,
+    seriesName: undefined,
+    opposite: false,
+    reversed: false,
+    logarithmic: false,
+    tickAmount: 6,
+    min: 6,
+    max: 6,
+    forceNiceScale: false,
+    floating: false,
+    decimalsInFloat: undefined,
+    labels: {
+      show: true,
+      align: 'right',
+      minWidth: 0,
+      maxWidth: 160,
+      style: {
+        colors: [],
+        fontSize: '12px',
+        fontFamily: 'Helvetica, Arial, sans-serif',
+        fontWeight: 400,
+        // cssClass: 'apexcharts-yaxis-label',
+      },
+      offsetX: 0,
+      offsetY: 0,
+      rotate: 0,
+      axisBorder: {
+        show: true,
+        color: '#78909C',
+        offsetX: 0,
+        offsetY: 0,
+      },
+      axisTicks: {
+        show: true,
+        borderType: 'solid',
+        color: '#78909C',
+        width: 6,
+        offsetX: 0,
+        offsetY: 0,
+      },
+      title: {
+        text: 'hello world',
+        rotate: -90,
+        offsetX: 0,
+        offsetY: 0,
+        style: {
+          color: '#123345',
+          fontSize: '12px',
+          fontFamily: 'Helvetica, Arial, sans-serif',
+          fontWeight: 600,
+          cssClass: 'apexcharts-yaxis-title',
+        },
+      },
+      crosshairs: {
+        show: true,
+        position: 'back',
+        stroke: {
+          color: '#b6b6b6',
+          width: 1,
+          dashArray: 0,
+        },
+      },
+      tooltip: {
+        enabled: true,
+        offsetX: 0,
+      },
+    },
   },
 };
 
@@ -124,8 +187,8 @@ const data1 = [
 
 function TestGraph() {
   return (
-    <div style={{ width: '60%', marginTop: '3rem'  }}>
-      <ReactApexCharts options={settings} series={data1} type="line" />;
+    <div style={{ width: '90%', height: '90%' }}>
+      <ReactApexCharts options={settings} series={data1} type="line" />
     </div>
   );
 }
