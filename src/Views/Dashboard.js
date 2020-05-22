@@ -2,22 +2,27 @@ import React, { useState, useEffect } from 'react';
 
 import { axiosWithBase } from '../Helpers/axios';
 
-function Dashboard() {
-  const [data, setData] = useState({currentWeight:"", startWeight:"", weights: []});
-  const fetchData = () => {
-    axiosWithBase
-      .get('weight/user/all')
-      .then((res) => {
-        setData(res.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+function Dashboard(props) {
+  const [data, setData] = useState({
+    currentWeight: '',
+    startWeight: '',
+    weights: [],
+  });
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (props.user) {
+      axiosWithBase
+        .get('weight/user/all')
+        .then((res) => {
+          setData(res.data.data);
+        })
+        .catch((err) => {
+          localStorage.clear();
+          props.setUser(null);
+          props.history.push('/error');
+        });
+    }
+  }, [props, props.user]);
 
   return (
     <>
