@@ -12,7 +12,11 @@ function Dashboard(props) {
   useEffect(() => {
     if (props.user) {
       axiosWithBase
-        .get('weight/user/all')
+        .get('weight/user/all', {
+          headers: {
+            authorization: localStorage.getItem('authorization'),
+          },
+        })
         .then((res) => {
           setData(res.data.data);
         })
@@ -20,9 +24,10 @@ function Dashboard(props) {
           localStorage.clear();
           props.setUser(null);
           props.history.push('/error');
+          console.log(err.message);
         });
     }
-  }, [props, props.user]);
+  }, []);
 
   return (
     <>

@@ -4,6 +4,8 @@
 - Resend link to confirm
 - Build error page if token has expired or error logging in
 - Build 404 page for routing error
+- Refactor logic for login private route
+
 
 # COMPLETE
 
