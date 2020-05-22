@@ -32,16 +32,31 @@ function Dashboard(props) {
     }
   }, [props]);
 
-  console.log(data);
+  let differenceColor = '#373d3f';
+  if (data.startWeight < 165) {
+    differenceColor = '#ff4560';
+  } else if (data.startWeight > 165) {
+    differenceColor = '#02d8b7';
+  }
 
   return (
     <StyledDashboardContainer>
       <div className="boxes">
-        <SmallCard value={data.currentWeight} color={'blue'} />
-        <SmallCard value={data.startWeight} color={'green'} />
         <SmallCard
-          value={data.startWeight - data.currentWeight}
+          title={'Start Weight'}
+          value={data.startWeight}
+          color={'blue'}
+        />
+        <SmallCard
+          title={'Current Weight'}
+          value={165}
           color={'yellow'}
+        />
+        <SmallCard
+          title={'Difference'}
+          value={165 - data.startWeight}
+          color={'yellow'}
+          differenceColor={differenceColor}
         />
       </div>
       <div className="graph">
@@ -63,7 +78,7 @@ const StyledDashboardContainer = styled.main`
   .boxes {
     height: 26%;
     width: 55%;
-    margin: 0.7rem 0 ;
+    margin: 0.7rem 0;
     display: flex;
     justify-content: space-between;
   }

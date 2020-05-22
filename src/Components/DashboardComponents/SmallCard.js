@@ -4,10 +4,19 @@ import CountUp from 'react-countup';
 
 function SmallCard(props) {
   return (
-    <StyledSmallCard color={props.color}>
-      <h3>
-        <CountUp duration={1.75} end={props.value} />
-      </h3>
+    <StyledSmallCard color={props.title === 'Difference' ? props.differenceColor : props.color}>
+      <div
+        className="text"
+        style={{
+          color: props.title === 'Difference' ? props.differenceColor : null,
+        }}
+      >
+        <h3>
+          <CountUp start={0} duration={1.75} end={props.value} />
+        </h3>
+        <span>lbs</span>
+      </div>
+      <h4>{props.title}</h4>
     </StyledSmallCard>
   );
 }
@@ -18,17 +27,31 @@ const StyledSmallCard = styled.section`
     box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.07);
     background-color: ${(props) => props.theme.white};
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-bottom: 6px solid ${(props) =>
       props.color === 'blue'
         ? props.theme.mainBlue
-        : props.color === 'green'
-        ? props.theme.green
-        : props.theme.yellow};
+        : props.color === 'yellow'
+        ? props.theme.yellow
+        : props.color};
 
-    h3 {
-      font-size: 2.7rem;
+    .text {
+        display: flex;
+        align-items: baseline;
+
+        h3 {
+          font-size: 3rem;
+          display: inline-block;
+        }
+    }
+
+
+    h4 {
+        opacity: 0.6;
+        font-size: 1rem;
+        margin-top: 0.7rem;
     }
   }
 `;
