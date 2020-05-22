@@ -22,7 +22,21 @@ function Dashboard(props) {
           },
         })
         .then((res) => {
-          setData(res.data.data);
+          const { data } = res.data;
+
+          const weights = data.weights.map((weight) => {
+            return weight.current_weight;
+          });
+
+          const dates = data.weights.map((weight) => {
+            return weight.date;
+          });
+          setData({
+            currentWeight: data.currentWeight,
+            startWeight: data.startWeight,
+            weights,
+            dates,
+          });
         })
         .catch((err) => {
           localStorage.clear();
@@ -47,11 +61,7 @@ function Dashboard(props) {
           value={data.startWeight}
           color={'blue'}
         />
-        <SmallCard
-          title={'Current Weight'}
-          value={165}
-          color={'yellow'}
-        />
+        <SmallCard title={'Current Weight'} value={165} color={'yellow'} />
         <SmallCard
           title={'Difference'}
           value={165 - data.startWeight}
@@ -60,7 +70,7 @@ function Dashboard(props) {
         />
       </div>
       <div className="graph">
-        <TestGraph2 />
+        <TestGraph2 weights={data.weights} dates={data.dates} />
       </div>
     </StyledDashboardContainer>
   );

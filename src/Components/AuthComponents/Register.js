@@ -105,6 +105,7 @@ function Register(props) {
           type="number"
           min="0"
           max="1000"
+          step="0.1"
           name="weight"
           value={input.weight}
           onChange={changeHandler}
