@@ -3,9 +3,10 @@
 - Research reset password
 - Resend link to confirm
 - Build 404 page for routing error
-- Design and build out basic Dashboard
 
 # COMPLETE
+
+## 21/05/2020
 
 - Build out spinner for log in/registration
 - Build out terms and conditions page/privacy policy page
@@ -20,8 +21,15 @@
 - Move navigation file to more appropriate place
 - Allow confirmation from success page
 - Persist user data! (API call, localstorage?)
+
+## 22/05/2020
+
 - NEED TO BUILD A RETRIEVE USER INFO ENDPOINT WITH JUST TOKEN REQUIRED THAT GIVES SAME INFO AS LOGIN
 - REFACTOR what is retrieved from user on login and stored in state
 - Built API call to retrieve user data in Dashboard component ( Just simple display at the moment )
 - Build error page if token has expired or error logging in
 - Refactor logic for login private route
+- Design and build out basic Dashboard
+- Conditionally render graph and cards
+- Set up settings for Graph
+- Move graph file to correct section

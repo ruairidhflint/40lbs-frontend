@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { axiosWithBase } from '../Helpers/axios';
 
 import SmallCard from '../Components/DashboardComponents/SmallCard';
-import TestGraph2 from '../Components/testgraph2';
+import Graph from '../Components/DashboardComponents/Graph';
 
 function Dashboard(props) {
   const [data, setData] = useState({
@@ -75,7 +75,7 @@ function Dashboard(props) {
         />
       </div>
       <div className="graph">
-        <TestGraph2 weights={data.weights} dates={data.dates} />
+        <Graph weights={data.weights} dates={data.dates} />
       </div>
     </StyledDashboardContainer>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactApexCharts from 'react-apexcharts';
 
-import Spinner from '../Components/Reusables/Spinner';
+import Spinner from '../Reusables/Spinner';
 
-function TestGraph2(props) {
+function Graph(props) {
   const series = [
     {
       name: 'Weights',
@@ -60,4 +60,4 @@ function TestGraph2(props) {
   }
 }
 
-export default TestGraph2;
+export default Graph;
