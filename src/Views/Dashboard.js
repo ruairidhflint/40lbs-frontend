@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
 import { axiosWithBase } from '../Helpers/axios';
 
@@ -24,21 +25,55 @@ function Dashboard(props) {
           localStorage.clear();
           props.setUser(null);
           props.history.push('/error');
-          console.log(err.message);
         });
     }
-  }, []);
+  }, [props]);
+
+  console.log(data);
 
   return (
-    <>
-      <h1 style={{ fontSize: '22vw' }}>dashboard</h1>
-      <h2>Current Weight: {data.currentWeight}</h2>
-      <h2>Start Weight: {data.startWeight}</h2>
-      {data.weights.map((weight) => {
-        return <p>{weight.current_weight}</p>;
-      })}
-    </>
+    <StyledDashboardContainer>
+      <div className="boxes">
+        <div className="box"></div>
+        <div className="box"></div>
+        <div className="box"></div>
+      </div>
+      <div className="graph"></div>
+    </StyledDashboardContainer>
   );
 }
+
+const StyledDashboardContainer = styled.main`
+  width: 100vw;
+  height: 92vh;
+  background-color: ${(props) => props.theme.background};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .boxes {
+    height: 90%;
+    width: 18%;
+    margin: 0 1.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .box {
+      width: 100%;
+      height: 30%;
+      box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.07);
+      background-color: ${(props) => props.theme.white};
+    }
+  }
+
+  .graph {
+    height: 90%;
+    width: 45%;
+    margin: 0 1.1rem;
+    background-color: ${(props) => props.theme.white};
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.07);
+  }
+`;
 
 export default Dashboard;

@@ -2,10 +2,8 @@
 
 - Research reset password
 - Resend link to confirm
-- Build error page if token has expired or error logging in
 - Build 404 page for routing error
-- Refactor logic for login private route
-
+- Design and build out basic Dashboard
 
 # COMPLETE
 
@@ -24,4 +22,6 @@
 - Persist user data! (API call, localstorage?)
 - NEED TO BUILD A RETRIEVE USER INFO ENDPOINT WITH JUST TOKEN REQUIRED THAT GIVES SAME INFO AS LOGIN
 - REFACTOR what is retrieved from user on login and stored in state
-- Built API call to retrieve user data in Dashboard component ( Just simple display at the moment ) 
+- Built API call to retrieve user data in Dashboard component ( Just simple display at the moment )
+- Build error page if token has expired or error logging in
+- Refactor logic for login private route
