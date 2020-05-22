@@ -2,8 +2,8 @@
 
 - Research reset password
 - Resend link to confirm
-- Persist user data! (API call, localstorage?)
-- NEED TO BUILD A RETRIEVE USER INFO ENDPOINT WITH JUST TOKEN REQUIRED THAT GIVES SAME INFO AS LOGINA
+- Built API call to retrieve user data in Dashboard component ( Just simple display at the moment )
+
 
 # COMPLETE
 
@@ -19,3 +19,6 @@
 - Style Logout button
 - Move navigation file to more appropriate place
 - Allow confirmation from success page
+- Persist user data! (API call, localstorage?)
+- NEED TO BUILD A RETRIEVE USER INFO ENDPOINT WITH JUST TOKEN REQUIRED THAT GIVES SAME INFO AS LOGIN
+- REFACTOR what is retrieved from user on login and stored in state

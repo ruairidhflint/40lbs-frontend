@@ -14,19 +14,15 @@ import Dashboard from './Views/Dashboard';
 
 function App() {
   const [user, setUser] = useState(() => {
-    const tempUser = JSON.parse(localStorage.getItem('user'));
+    const userDetails = JSON.parse(localStorage.getItem('user'));
 
-    if(tempUser){
-      return tempUser;
+    if (userDetails) {
+      return userDetails;
     } else {
       return null;
     }
   });
 
-  // useEffect(() => {
-  //   const tempUser = JSON.parse(localStorage.getItem('user'));
-  //   console.log(tempUser);
-  // })
   return (
     <div className="AppContainer">
       <Route
