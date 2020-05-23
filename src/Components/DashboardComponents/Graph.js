@@ -19,6 +19,19 @@ function Graph(props) {
       toolbar: {
         show: true,
       },
+      animations: {
+        enabled: true,
+        easing: 'easeinout',
+        speed: 800,
+        animateGradually: {
+          enabled: true,
+          delay: 150,
+        },
+        dynamicAnimation: {
+          enabled: true,
+          speed: 350,
+        },
+      },
     },
     dataLabels: {
       enabled: false,
@@ -52,11 +65,8 @@ function Graph(props) {
         <ReactApexCharts options={options} series={series} type="line" />
       </div>
     );
-  }
-  else {
-    return (
-      <Spinner />
-    )
+  } else {
+    return <Spinner />;
   }
 }
 
