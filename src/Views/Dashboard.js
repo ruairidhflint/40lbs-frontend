@@ -130,8 +130,6 @@ const StyledDashboardContainer = styled.main`
       padding: 0;
     }
 
-
-
     @media (max-width: 550px) {
       height: auto;
     }
@@ -143,18 +141,41 @@ const StyledDashboardContainer = styled.main`
 `;
 
 function TestButton() {
-  return <StyledTestButton></StyledTestButton>;
+  return (
+    <StyledTestButton>
+      <span>+</span>
+    </StyledTestButton>
+  );
 }
 
 const StyledTestButton = styled.div`
-  width: 5rem;
-  height: 5rem;
-  background-color: ${(props) => props.theme.mainBlue};
+  width: 4rem;
+  height: 4rem;
+  background-color: ${(props) => props.theme.green};
   border-radius: 50%;
   position: absolute;
   z-index: 2;
-  bottom: 18px !important;
-  right: 13px !important;
+  bottom: 20px !important;
+  right: 15px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.07);
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+
+  :hover {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  span {
+    color: ${(props) => props.theme.white};
+    font-size: 2.7rem;
+    padding: 0 0 0.5rem 0;
+    margin: 0;
+  }
 `;
 
 export default Dashboard;
