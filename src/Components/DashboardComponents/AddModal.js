@@ -52,7 +52,11 @@ function AddModal(props) {
               name="new-weight"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder={props.modalError ? 'There was an error. Please try again.' : null}
+              placeholder={
+                props.modalError
+                  ? 'There was an error. Please try again.'
+                  : null
+              }
               required
             />
           </div>
@@ -90,6 +94,27 @@ const StyledAddModal = styled.div`
       flex-direction: column;
       align-items: center;
 
+      @media (max-width: 1000px) {
+        width: 50vw;
+      }
+
+      @media (max-width: 800px) {
+        width: 60vw;
+      }
+
+      @media (max-width: 650px) {
+        width: 75vw;
+      }
+
+      @media (max-width: 500px) {
+        width: 85vw;
+      }
+
+      @media (max-width: 400px) {
+        width: 95vw;
+        height: 40vh;
+      }
+
       .title {
         width: 100%;
         height: 25%;
@@ -113,7 +138,6 @@ const StyledAddModal = styled.div`
           display: block;
           width: 90%;
           height: 3em;
-
           border-radius: 4px;
           background-color: ${(props) => props.theme.background};
           font-size: 1.2rem;
@@ -129,7 +153,7 @@ const StyledAddModal = styled.div`
           }
 
           @media (max-width: 400px) {
-            width: 100%;
+            width: 85%;
           }
 
           :focus {
