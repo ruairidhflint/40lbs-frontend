@@ -5,8 +5,11 @@ import { axiosWithBase } from '../Helpers/axios';
 
 import SmallCard from '../Components/DashboardComponents/SmallCard';
 import Graph from '../Components/DashboardComponents/Graph';
+import AddButton from '../Components/DashboardComponents/AddButton';
+import AddModal from '../Components/DashboardComponents/AddModal';
 
 function Dashboard(props) {
+  const [modalVisible, setModalVisible] = useState(false);
   const [data, setData] = useState({
     currentWeight: '',
     startWeight: '',
@@ -39,7 +42,7 @@ function Dashboard(props) {
             dates,
           });
         })
-        .catch((err) => {
+        .catch(() => {
           localStorage.clear();
           props.setUser(null);
           props.history.push('/error');
@@ -55,30 +58,33 @@ function Dashboard(props) {
   }
 
   return (
-    <StyledDashboardContainer>
-      <div className="boxes">
-        <SmallCard
-          title={'Start Weight'}
-          value={data.startWeight}
-          color={'blue'}
-        />
-        <SmallCard
-          title={'Current Weight'}
-          value={data.currentWeight}
-          color={'yellow'}
-        />
-        <SmallCard
-          title={'Difference'}
-          value={data.currentWeight - data.startWeight}
-          color={'yellow'}
-          differenceColor={differenceColor}
-        />
-      </div>
-      <div className="graph">
-        <Graph weights={data.weights} dates={data.dates} />
-      </div>
-      <TestButton />
-    </StyledDashboardContainer>
+    <>
+      <AddModal visible={modalVisible} />
+      <StyledDashboardContainer>
+        <div className="boxes">
+          <SmallCard
+            title={'Start Weight'}
+            value={data.startWeight}
+            color={'blue'}
+          />
+          <SmallCard
+            title={'Current Weight'}
+            value={data.currentWeight}
+            color={'yellow'}
+          />
+          <SmallCard
+            title={'Difference'}
+            value={data.currentWeight - data.startWeight}
+            color={'yellow'}
+            differenceColor={differenceColor}
+          />
+        </div>
+        <div className="graph">
+          <Graph weights={data.weights} dates={data.dates} />
+        </div>
+        <AddButton setModalVisible={setModalVisible} />
+      </StyledDashboardContainer>
+    </>
   );
 }
 
@@ -117,6 +123,7 @@ const StyledDashboardContainer = styled.main`
     margin: 0.7rem 0;
     background-color: ${(props) => props.theme.white};
     box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.07);
+    border-radius: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,44 +144,6 @@ const StyledDashboardContainer = styled.main`
     @media (max-width: 350px) {
       width: 97%;
     }
-  }
-`;
-
-function TestButton() {
-  return (
-    <StyledTestButton>
-      <span>+</span>
-    </StyledTestButton>
-  );
-}
-
-const StyledTestButton = styled.div`
-  width: 4rem;
-  height: 4rem;
-  background-color: ${(props) => props.theme.green};
-  border-radius: 50%;
-  position: absolute;
-  z-index: 2;
-  bottom: 20px !important;
-  right: 15px !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.07);
-  opacity: 0.8;
-  transition: opacity 0.2s ease-in-out;
-  cursor: pointer;
-
-  :hover {
-    opacity: 1;
-    transition: opacity 0.2s ease-in-out;
-  }
-
-  span {
-    color: ${(props) => props.theme.white};
-    font-size: 2.7rem;
-    padding: 0 0 0.5rem 0;
-    margin: 0;
   }
 `;
 

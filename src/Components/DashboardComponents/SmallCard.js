@@ -48,6 +48,7 @@ const StyledSmallCard = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 3px;
     border-bottom: 6px solid ${(props) =>
       props.color === 'blue'
         ? props.theme.mainBlue
