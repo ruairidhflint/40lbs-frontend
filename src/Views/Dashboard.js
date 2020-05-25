@@ -90,12 +90,24 @@ const StyledDashboardContainer = styled.main`
   justify-content: center;
   align-items: center;
 
+  @media(max-width: 550px){
+    justify-content: flex-start;
+  }
+
   .boxes {
     height: 26%;
     width: 55%;
     margin: 0.7rem 0;
     display: flex;
     justify-content: space-between;
+
+    @media(max-width: 900px){
+      width: 90%;
+    }
+
+    @media(max-width: 350px){
+      width: 97%;
+    }
   }
 
   .graph {
@@ -107,6 +119,18 @@ const StyledDashboardContainer = styled.main`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media(max-width: 900px){
+      width: 90%;
+    }
+
+    @media(max-width: 550px){
+      height: auto;
+    }
+
+    @media(max-width: 350px){
+      width: 97%;
+    }
   }
 `;
 

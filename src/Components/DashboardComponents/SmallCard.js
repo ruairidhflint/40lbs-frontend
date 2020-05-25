@@ -62,6 +62,18 @@ const StyledSmallCard = styled.section`
         h3 {
           font-size: 3rem;
           display: inline-block;
+
+          @media(max-width: 980px){
+            font-size: 2.5rem;
+          }
+
+          @media(max-width: 980px){
+            font-size: 2rem;
+          }
+
+          @media(max-width: 370px){
+            font-size: 1.7rem;
+          }
         }
     }
 
@@ -70,6 +82,14 @@ const StyledSmallCard = styled.section`
         opacity: 0.6;
         font-size: 1rem;
         margin-top: 0.7rem;
+
+        @media(max-width: 980px){
+          font-size: 0.8rem;
+        }
+
+        @media(max-width: 370px){
+          font-size: 0.7rem;
+        }
     }
   }
 `;

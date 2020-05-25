@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactApexCharts from 'react-apexcharts';
+import styled from 'styled-components';
 
 import Spinner from '../Reusables/Spinner';
 
@@ -61,13 +62,26 @@ function Graph(props) {
   };
   if (props.weights.length) {
     return (
-      <div style={{ width: '82%', marginTop: '1rem' }}>
+      <StyledGraphContainer>
         <ReactApexCharts options={options} series={series} type="line" />
-      </div>
+      </StyledGraphContainer>
     );
   } else {
     return <Spinner />;
   }
 }
+
+const StyledGraphContainer = styled.div`
+  width: 82%;
+  margin-top: 1rem;
+
+  @media(max-width: 900px){
+    width: 90%;
+  }
+
+  @media(max-width: 390px){
+    width: 99%;
+  }
+`;
 
 export default Graph;
