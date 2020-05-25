@@ -75,7 +75,7 @@ const StyledGraphContainer = styled.div`
   width: 82%;
   margin-top: 1rem;
 
-  @media(max-width: 900px){
+  @media(max-width: 850px){
     width: 90%;
   }
 

@@ -77,6 +77,7 @@ function Dashboard(props) {
       <div className="graph">
         <Graph weights={data.weights} dates={data.dates} />
       </div>
+      <TestButton />
     </StyledDashboardContainer>
   );
 }
@@ -90,7 +91,7 @@ const StyledDashboardContainer = styled.main`
   justify-content: center;
   align-items: center;
 
-  @media(max-width: 550px){
+  @media (max-width: 550px) {
     justify-content: flex-start;
   }
 
@@ -101,11 +102,11 @@ const StyledDashboardContainer = styled.main`
     display: flex;
     justify-content: space-between;
 
-    @media(max-width: 900px){
+    @media (max-width: 900px) {
       width: 90%;
     }
 
-    @media(max-width: 350px){
+    @media (max-width: 350px) {
       width: 97%;
     }
   }
@@ -120,18 +121,40 @@ const StyledDashboardContainer = styled.main`
     justify-content: center;
     align-items: center;
 
-    @media(max-width: 900px){
+    @media (max-width: 900px) {
       width: 90%;
+      padding: 3rem;
     }
 
-    @media(max-width: 550px){
+    @media (max-width: 550px) {
+      padding: 0;
+    }
+
+
+
+    @media (max-width: 550px) {
       height: auto;
     }
 
-    @media(max-width: 350px){
+    @media (max-width: 350px) {
       width: 97%;
     }
   }
+`;
+
+function TestButton() {
+  return <StyledTestButton></StyledTestButton>;
+}
+
+const StyledTestButton = styled.div`
+  width: 5rem;
+  height: 5rem;
+  background-color: ${(props) => props.theme.mainBlue};
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  bottom: 18px !important;
+  right: 13px !important;
 `;
 
 export default Dashboard;
