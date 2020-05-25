@@ -9,7 +9,7 @@ import AddButton from '../Components/DashboardComponents/AddButton';
 import AddModal from '../Components/DashboardComponents/AddModal';
 
 function Dashboard(props) {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
   const [data, setData] = useState({
     currentWeight: '',
     startWeight: '',
