@@ -59,7 +59,7 @@ function Dashboard(props) {
 
   return (
     <>
-      <AddModal visible={modalVisible} />
+      <AddModal visible={modalVisible} setModalVisible={setModalVisible} />
       <StyledDashboardContainer>
         <div className="boxes">
           <SmallCard

@@ -2,8 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 
 function AddModal(props) {
+  const closeModal = () => {
+    props.setModalVisible(false);
+  };
+
+  const closeOnOutsideClick = (e) => {
+    if (e.target.className !== 'modal') {
+      closeModal();
+    }
+  };
   return (
-    <StyledAddModal visible={props.visible}>
+    <StyledAddModal onClick={closeOnOutsideClick} visible={props.visible}>
       <div className="modal"></div>
     </StyledAddModal>
   );
