@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 function AddModal(props) {
+  const [inputValue, setInputValue] = useState('');
+
   const closeModal = () => {
     props.setModalVisible(false);
+    setInputValue('');
   };
 
   const closeOnOutsideClick = (e) => {
@@ -11,15 +14,28 @@ function AddModal(props) {
       closeModal();
     }
   };
+
+  const submit = (e) => {
+    e.preventDefault();
+    props.addNewWeight(inputValue);
+  };
+
   return (
     <StyledAddModal onClick={closeOnOutsideClick} visible={props.visible}>
       <div className="container">
-        <form className="modal">
+        <form onSubmit={submit} className="modal">
           <div className="title">
             <h3>Log a new weight</h3>
           </div>
           <div className="input">
-            <input type="number" step="0.1" name="new-weight" required />
+            <input
+              type="number"
+              step="0.1"
+              name="new-weight"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              required
+            />
           </div>
           <div className="buttons">
             <button onClick={closeModal} className="cancel">

@@ -17,6 +17,19 @@ function Dashboard(props) {
     dates: [],
   });
 
+  const addNewWeight = (newWeight) => {
+    const data = {
+      date: new Date().toLocaleDateString(),
+      current_weight: newWeight,
+      user_id: props.user.id,
+    };
+    axiosWithBase.post('weight/new', data, {
+      headers: {
+        authorization: localStorage.getItem('authorization'),
+      },
+    });
+  };
+
   useEffect(() => {
     if (props.user) {
       axiosWithBase
@@ -59,7 +72,11 @@ function Dashboard(props) {
 
   return (
     <>
-      <AddModal visible={modalVisible} setModalVisible={setModalVisible} />
+      <AddModal
+        visible={modalVisible}
+        setModalVisible={setModalVisible}
+        addNewWeight={addNewWeight}
+      />
       <StyledDashboardContainer>
         <div className="boxes">
           <SmallCard
