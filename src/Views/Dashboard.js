@@ -9,7 +9,9 @@ import AddButton from '../Components/DashboardComponents/AddButton';
 import AddModal from '../Components/DashboardComponents/AddModal';
 
 function Dashboard(props) {
-  const [modalVisible, setModalVisible] = useState(true);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalSpinning, setModalSpinning] = useState(false);
+  const [modalError, setModalError] = useState(false);
   const [data, setData] = useState({
     currentWeight: '',
     startWeight: '',
@@ -18,16 +20,33 @@ function Dashboard(props) {
   });
 
   const addNewWeight = (newWeight) => {
-    const data = {
+    setModalSpinning(true);
+    setModalError(false);
+    const newData = {
       date: new Date().toLocaleDateString(),
       current_weight: newWeight,
       user_id: props.user.id,
     };
-    axiosWithBase.post('weight/new', data, {
-      headers: {
-        authorization: localStorage.getItem('authorization'),
-      },
-    });
+    axiosWithBase
+      .post('weight/new', newData, {
+        headers: {
+          authorization: localStorage.getItem('authorization'),
+        },
+      })
+      .then(() => {
+        setModalSpinning(false);
+        setModalVisible(false);
+        setData({
+          ...data,
+          currentWeight: newWeight,
+          weights: [...data.weights, newWeight],
+          dates: [...data.dates, new Date().toLocaleDateString()],
+        });
+      })
+      .catch(() => {
+        setModalSpinning(false);
+        setModalError(true);
+      });
   };
 
   useEffect(() => {
@@ -76,6 +95,9 @@ function Dashboard(props) {
         visible={modalVisible}
         setModalVisible={setModalVisible}
         addNewWeight={addNewWeight}
+        modalSpinning={modalSpinning}
+        modalError={modalError}
+        setModalError={setModalError}
       />
       <StyledDashboardContainer>
         <div className="boxes">

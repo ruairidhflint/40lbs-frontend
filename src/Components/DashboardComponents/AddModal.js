@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import Spinner from '../Reusables/Spinner';
+
 function AddModal(props) {
   const [inputValue, setInputValue] = useState('');
 
@@ -20,8 +22,24 @@ function AddModal(props) {
     props.addNewWeight(inputValue);
   };
 
+  if (props.modalSpinning) {
+    return (
+      <StyledAddModal onClick={closeOnOutsideClick} visible={props.visible}>
+        <div className="container">
+          <div className="modal">
+            <Spinner />
+          </div>
+        </div>
+      </StyledAddModal>
+    );
+  }
+
   return (
-    <StyledAddModal onClick={closeOnOutsideClick} visible={props.visible}>
+    <StyledAddModal
+      onClick={closeOnOutsideClick}
+      visible={props.visible}
+      error={props.modalError}
+    >
       <div className="container">
         <form onSubmit={submit} className="modal">
           <div className="title">
@@ -34,6 +52,7 @@ function AddModal(props) {
               name="new-weight"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
+              placeholder={props.modalError ? 'There was an error. Please try again.' : null}
               required
             />
           </div>
@@ -94,12 +113,13 @@ const StyledAddModal = styled.div`
           display: block;
           width: 90%;
           height: 3em;
-          border: none;
+
           border-radius: 4px;
           background-color: ${(props) => props.theme.background};
           font-size: 1.2rem;
           padding-left: 1rem;
-          border: 2px solid ${(props) => props.theme.white};
+          border: ${(props) =>
+            props.error ? '2px solid red' : '2px solid white'};
           border-radius: 4px;
           transition: background-color 0.3s ease-in-out;
 
